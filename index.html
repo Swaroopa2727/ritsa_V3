@@ -28,15 +28,19 @@
       <span class="rail-brand-mark brand-font">R</span>
     </div>
     <div class="rail-nav">
-      <a class="rail-link active" data-menu="Dashboard"><i class="bi bi-grid-1x2"></i>Dashboard</a>
-      <a class="rail-link" data-menu="Masters"><i class="bi bi-archive"></i>Masters</a>
-      <a class="rail-link" data-menu="Procurement"><i class="bi bi-cart3"></i>Procurement</a>
-      <a class="rail-link" data-menu="Inventory"><i class="bi bi-box-seam"></i>Inventory</a>
-      <a class="rail-link" data-menu="Production"><i class="bi bi-diagram-3"></i>Production</a>
-      <a class="rail-link" data-menu="Warehouse"><i class="bi bi-shield-check"></i>Warehouse</a>
-      <a class="rail-link" data-menu="Sales"><i class="bi bi-graph-up-arrow"></i>Sales</a>
-      <a class="rail-link" data-menu="Reports"><i class="bi bi-file-earmark-text"></i>Reports</a>
-      <a class="rail-link" data-menu="Admin"><i class="bi bi-people"></i>Admin</a>
+      <a class="rail-link active" data-menu="Dashboard" title="Dashboard"><i class="bi bi-grid-1x2"></i><span>Dashboard</span></a>
+      <a class="rail-link" data-menu="Master Data" title="Master Data"><i class="bi bi-archive"></i><span>Master Data</span></a>
+      <a class="rail-link" data-menu="Procurement" title="Procurement"><i class="bi bi-cart3"></i><span>Procurement</span></a>
+      <a class="rail-link" data-menu="Goods Receipt" title="Goods Receipt"><i class="bi bi-box-seam"></i><span>Goods Receipt</span></a>
+      <a class="rail-link" data-menu="Quality Management" title="Quality Management"><i class="bi bi-eyedropper"></i><span>Quality</span></a>
+      <a class="rail-link" data-menu="Production" title="Production"><i class="bi bi-diagram-3"></i><span>Production</span></a>
+      <a class="rail-link" data-menu="Warehouse" title="Warehouse"><i class="bi bi-shield-check"></i><span>Warehouse</span></a>
+      <a class="rail-link" data-menu="Finished Goods" title="Finished Goods"><i class="bi bi-capsule"></i><span>Finished Goods</span></a>
+      <a class="rail-link" data-menu="Sales &amp; Dispatch" title="Sales & Dispatch"><i class="bi bi-graph-up-arrow"></i><span>Sales &amp; Dispatch</span></a>
+      <a class="rail-link" data-menu="Reports &amp; Analytics" title="Reports & Analytics"><i class="bi bi-file-earmark-text"></i><span>Reports</span></a>
+      <a class="rail-link" data-menu="Workflow &amp; Approvals" title="Workflow & Approvals"><i class="bi bi-check2-square"></i><span>Workflow</span></a>
+      <a class="rail-link" data-menu="Compliance" title="Compliance"><i class="bi bi-patch-check"></i><span>Compliance</span></a>
+      <a class="rail-link" data-menu="Administration" title="Administration"><i class="bi bi-people"></i><span>Admin</span></a>
     </div>
   </nav>
 
@@ -60,7 +64,7 @@
     <div class="topbar-actions">
       <div class="tb-icon">
         <i class="bi bi-bell"></i>
-        <span class="badge-dot">12</span>
+        <span class="badge-dot">0</span>
         <span class="lbl">Notifications</span>
       </div>
       <!-- <div class="tb-icon">
@@ -72,17 +76,27 @@
         <i class="bi bi-question-circle"></i>
         <span class="lbl">Help</span>
       </div>
-      <div class="tb-icon">
+      <!-- <div class="tb-icon">
         <i class="bi bi-gear"></i>
         <span class="lbl">Settings</span>
-      </div>
-      <div class="tb-user">
-        <img src="https://i.pravatar.cc/80?img=12" alt="John Doe">
-        <div>
-          <div class="name">John Doe</div>
-          <div class="role">System Administrator</div>
-        </div>
-        <i class="bi bi-chevron-down text-muted d-none d-sm-inline" style="font-size:12px;"></i>
+      </div> -->
+      <div class="dropdown tb-user-wrap">
+        <a class="tb-user dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <div class="profile-pic">
+            <i class="bi bi-person-circle"></i>
+          </div>
+          <div>
+            <div class="name">Shailendra Singh</div>
+            <div class="role">Chief Operating Officer</div>
+          </div>
+          <i class="bi bi-chevron-down text-muted d-none d-sm-inline" style="font-size:12px;"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end user-dropdown" aria-labelledby="userDropdown">
+          <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle"></i> My Account</a></li>
+          <!-- <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Settings</a></li> -->
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+        </ul>
       </div>
     </div>
   </header>
@@ -103,225 +117,189 @@
     </div> -->
 
     <ul class="masters-list" data-menu="Dashboard">
-      <li class="master-item">
-        <div class="m-row active-sub"><span class="m-ic"><i class="bi bi-speedometer2"></i></span>Overview</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-truck"></i></span>Dispatch Summary</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-boxes"></i></span>Inventory Snapshot</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-gear-wide-connected"></i></span>Production Status</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-cash-stack"></i></span>Sales Performance</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-clipboard-data"></i></span>Procurement Insights</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-graph-up-arrow"></i></span>KPI Analytics</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-bell"></i></span>Alerts &amp; Notifications</div>
-      </li>
+      <li class="master-item"><div class="m-row active-sub"><span class="m-ic"><i class="bi bi-speedometer2"></i></span>Overview</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-bar-chart-line"></i></span>KPI Dashboard</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-bell"></i></span>Notifications</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-calendar3"></i></span>Calendar</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-clock-history"></i></span>Recent Activities</div></li>
     </ul>
 
-    <ul class="masters-list" data-menu="Masters" style="display:none">
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-building"></i></span>Organization</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-box"></i></span>Material Master</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-truck"></i></span>Vendor Master</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-person-badge"></i></span>Customer Master</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-house-gear"></i></span>Warehouse Master</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-gear"></i></span>Equipment Master</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-cash-coin"></i></span>Finance Masters</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-patch-check"></i></span>Quality Masters</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-clipboard-check"></i></span>Compliance</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-file-earmark"></i></span>Documents</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-diagram-2"></i></span>Workflow</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-upc-scan"></i></span>Barcode &amp; Labels</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-sliders"></i></span>System Configuration</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-plug"></i></span>Integration</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-patch-check"></i></span>Generic Lookups</div>
-      </li>
+    <ul class="masters-list" data-menu="Master Data" style="display:none">
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-building"></i></span>Organization</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-buildings"></i></span>Plants &amp; Facilities</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-house-gear"></i></span>Warehouse</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-geo-alt"></i></span>Storage Locations</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-box"></i></span>Material Master</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-capsule"></i></span>Product Master</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-diagram-3"></i></span>Bill of Materials (BOM)</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-journal-text"></i></span>Recipes / Formulas</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-people"></i></span>Business Partners</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-truck"></i></span>Vendors</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-person-badge"></i></span>Customers</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-person-vcard"></i></span>Employees</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-rulers"></i></span>Unit of Measure (UOM)</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-percent"></i></span>Tax Configuration</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-coin"></i></span>Currency</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-upc"></i></span>Batch Numbering</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-hash"></i></span>Document Numbering</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-sliders"></i></span>System Configuration</div></li>
     </ul>
 
     <ul class="masters-list" data-menu="Procurement" style="display:none">
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-file-earmark-plus"></i></span>Purchase Requisition</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-file-earmark-text"></i></span>Purchase Order</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-file-earmark-ruled"></i></span>Vendor Quotation</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-clipboard-check"></i></span>Goods Receipt</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-arrow-return-left"></i></span>Purchase Return</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-journal-text"></i></span>Contract Master</div>
-      </li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-file-earmark-plus"></i></span>Purchase Requisition</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-file-earmark-text"></i></span>Request for Quotation (RFQ)</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-file-earmark-ruled"></i></span>Vendor Quotation</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-bar-chart-steps"></i></span>Quotation Comparison</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-cart-check"></i></span>Purchase Order</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-journal-bookmark"></i></span>Purchase Contract</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-cash-coin"></i></span>Vendor Advance</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-receipt"></i></span>Purchase Invoice</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-receipt-cutoff"></i></span>Debit Note</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-arrow-return-left"></i></span>Vendor Returns</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-speedometer2"></i></span>Procurement Dashboard</div></li>
     </ul>
 
-    <ul class="masters-list" data-menu="Inventory" style="display:none">
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-boxes"></i></span>Stock Overview</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-arrow-left-right"></i></span>Stock Transfer</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-sliders"></i></span>Stock Adjustment</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-clipboard-data"></i></span>Physical Verification</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-upc"></i></span>Batch Tracking</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-hourglass-split"></i></span>Expiry Management</div>
-      </li>
+    <ul class="masters-list" data-menu="Goods Receipt" style="display:none">
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-clipboard-check"></i></span>Goods Receipt Note (GRN)</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-box-arrow-in-down"></i></span>Material Receipt</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-upc-scan"></i></span>Batch Creation</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-tag"></i></span>Label Printing</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-upc"></i></span>Barcode Generation</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-hourglass-split"></i></span>Pending Receipts</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-arrow-return-left"></i></span>Supplier Returns</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-speedometer2"></i></span>Receipt Dashboard</div></li>
+    </ul>
+
+    <ul class="masters-list" data-menu="Quality Management" style="display:none">
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-shield-check"></i></span>Incoming Quality Inspection</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-droplet"></i></span>Sampling</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-file-earmark-medical"></i></span>Test Requests</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-clipboard-data"></i></span>Test Results</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-file-earmark-text"></i></span>Certificate of Analysis (COA)</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-gear-wide-connected"></i></span>In-Process Quality</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-patch-check"></i></span>Final Product Quality</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-check2-circle"></i></span>Batch Release</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-thermometer-half"></i></span>Stability Studies</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-exclamation-triangle"></i></span>Deviations</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-tools"></i></span>CAPA</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-arrow-repeat"></i></span>Change Control</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-exclamation-octagon"></i></span>OOS / OOT</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-speedometer2"></i></span>Quality Dashboard</div></li>
     </ul>
 
     <ul class="masters-list" data-menu="Production" style="display:none">
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-calendar3"></i></span>Production Planning</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-file-earmark-text"></i></span>Work Order</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-diagram-3"></i></span>BOM Management</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-journal-bookmark"></i></span>Batch Record</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-cpu"></i></span>Shop Floor Execution</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-bar-chart"></i></span>Yield Analysis</div>
-      </li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-calendar3"></i></span>Production Planning</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-diagram-2"></i></span>Material Requirement Planning (MRP)</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-calendar-week"></i></span>Production Schedule</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-file-earmark-text"></i></span>Production Order</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-journal-bookmark"></i></span>Batch Manufacturing Record (BMR)</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-box-arrow-up"></i></span>Material Issue</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-cpu"></i></span>Process Execution</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-search"></i></span>In-Process Inspection</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-gear"></i></span>Machine Allocation</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-droplet-half"></i></span>Equipment Cleaning</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-check2-square"></i></span>Line Clearance</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-journal-richtext"></i></span>Batch Packaging Record (BPR)</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-percent"></i></span>Yield Calculation</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-flag"></i></span>Production Completion</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-arrow-counterclockwise"></i></span>Rework</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-trash3"></i></span>Scrap Management</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-archive-fill"></i></span>Batch Closure</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-speedometer2"></i></span>Production Dashboard</div></li>
     </ul>
 
     <ul class="masters-list" data-menu="Warehouse" style="display:none">
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-grid-3x3-gap"></i></span>Bin Management</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-box-arrow-in-down"></i></span>Putaway</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-box-arrow-up"></i></span>Picking</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-truck"></i></span>Dispatch</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-arrow-left-right"></i></span>Warehouse Transfer</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-clipboard-data"></i></span>Cycle Count</div>
-      </li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-boxes"></i></span>Raw Material Inventory</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-box"></i></span>WIP Inventory</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-box-seam"></i></span>Finished Goods Inventory</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-upc"></i></span>Batch Management</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-grid-3x3-gap"></i></span>Bin Management</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-arrow-left-right"></i></span>Stock Transfer</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-sliders"></i></span>Stock Adjustment</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-repeat"></i></span>Cycle Count</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-clipboard-data"></i></span>Physical Stock Verification</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-cash-stack"></i></span>Inventory Valuation</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-hourglass-split"></i></span>Expiry Management</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-hourglass-bottom"></i></span>Near Expiry Stock</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-speedometer2"></i></span>Warehouse Dashboard</div></li>
     </ul>
 
-    <ul class="masters-list" data-menu="Sales" style="display:none">
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-cart-check"></i></span>Sales Order</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-file-earmark-ruled"></i></span>Sales Quotation</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-receipt"></i></span>Invoice</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-arrow-return-left"></i></span>Sales Return</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-journal-text"></i></span>Customer Ledger</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-graph-up"></i></span>Sales Analytics</div>
-      </li>
+    <ul class="masters-list" data-menu="Finished Goods" style="display:none">
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-box-arrow-in-down"></i></span>Finished Goods Receipt</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-check2-circle"></i></span>Product Release</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-tag"></i></span>Labeling &amp; Coding</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-upc-scan"></i></span>Serialization</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-stack"></i></span>Palletization</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-fingerprint"></i></span>Batch Traceability</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-arrow-left-right"></i></span>Finished Goods Transfer</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-pause-circle"></i></span>Hold / Release</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-speedometer2"></i></span>Finished Goods Dashboard</div></li>
     </ul>
 
-    <ul class="masters-list" data-menu="Reports" style="display:none">
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-diagram-3"></i></span>Production Reports</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-box-seam"></i></span>Inventory Reports</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-patch-check"></i></span>Quality Reports</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-graph-up-arrow"></i></span>Sales Reports</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-clipboard-check"></i></span>Compliance Reports</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-sliders"></i></span>Custom Reports</div>
-      </li>
+    <ul class="masters-list" data-menu="Sales &amp; Dispatch" style="display:none">
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-cart-check"></i></span>Sales Order</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-truck"></i></span>Delivery Order</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-list-check"></i></span>Pick List</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-box"></i></span>Packing</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-send"></i></span>Shipment</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-receipt"></i></span>Invoice</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-arrow-return-left"></i></span>Customer Returns</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-geo"></i></span>Logistics Tracking</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-journal-text"></i></span>Dispatch Register</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-speedometer2"></i></span>Dispatch Dashboard</div></li>
     </ul>
 
-    <ul class="masters-list" data-menu="Admin" style="display:none">
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-people"></i></span>User Management</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-shield-lock"></i></span>Roles &amp; Permissions</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-clock-history"></i></span>Audit Trail</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-gear"></i></span>System Settings</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-key"></i></span>License Management</div>
-      </li>
-      <li class="master-item">
-        <div class="m-row"><span class="m-ic"><i class="bi bi-cloud-arrow-up"></i></span>Backup &amp; Restore</div>
-      </li>
+    <ul class="masters-list" data-menu="Reports &amp; Analytics" style="display:none">
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-bar-chart-line"></i></span>Executive Dashboard</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-boxes"></i></span>Inventory Reports</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-cart3"></i></span>Procurement Reports</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-diagram-3"></i></span>Production Reports</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-patch-check"></i></span>Quality Reports</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-shield-check"></i></span>Warehouse Reports</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-truck"></i></span>Dispatch Reports</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-fingerprint"></i></span>Batch Traceability</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-hourglass-split"></i></span>Expiry Reports</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-shield-lock"></i></span>Audit Reports</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-person-lines-fill"></i></span>User Activity</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-sliders"></i></span>Custom Reports</div></li>
+    </ul>
+
+    <ul class="masters-list" data-menu="Workflow &amp; Approvals" style="display:none">
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-inbox"></i></span>Approval Inbox</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-hourglass-split"></i></span>Pending Approvals</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-diagram-3"></i></span>Workflow Designer</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-arrow-up-circle"></i></span>Escalation Rules</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-envelope"></i></span>Email Notifications</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-clock-history"></i></span>Approval History</div></li>
+    </ul>
+
+    <ul class="masters-list" data-menu="Compliance" style="display:none">
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-shield-lock"></i></span>Audit Trail</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-pen"></i></span>Electronic Signatures</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-folder"></i></span>Document Management</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-file-earmark-text"></i></span>SOP Management</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-file-earmark-check"></i></span>Validation Documents</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-globe"></i></span>Regulatory Compliance</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-exclamation-octagon"></i></span>Recall Management</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-speedometer2"></i></span>Compliance Dashboard</div></li>
+    </ul>
+
+    <ul class="masters-list" data-menu="Administration" style="display:none">
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-people"></i></span>User Management</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-shield-lock"></i></span>Roles &amp; Permissions</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-list-check"></i></span>Menu Access</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-diagram-2"></i></span>Approval Matrix</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-building"></i></span>Organization Settings</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-calendar3"></i></span>Fiscal Year</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-hash"></i></span>Number Series</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-envelope"></i></span>Email Templates</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-bell"></i></span>Notification Settings</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-cloud-arrow-up"></i></span>Backup &amp; Restore</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-journal-text"></i></span>Audit Logs</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-plug"></i></span>API Integration</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-arrow-down-up"></i></span>Import / Export</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-heart-pulse"></i></span>System Health</div></li>
+      <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-gear"></i></span>Application Settings</div></li>
     </ul>
     </div>
   </aside>
