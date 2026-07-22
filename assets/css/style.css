@@ -88,11 +88,11 @@ a{text-decoration:none;color:inherit;}
   background:linear-gradient(135deg, var(--sidebar-active), var(--brand-pink-2));
   color:#fff;
   font-size:19px;
-  font-weight:800;
+  /* font-weight:800; */
   display:flex;
   align-items:center;
   justify-content:center;
-  box-shadow:0 4px 14px rgba(37,99,235,.45);
+  /* box-shadow:0 4px 14px rgba(37,99,235,.45); */
 }
 .rail-nav{display:flex; flex-direction:column; gap:5px; width:100%; align-items:center; flex:1; min-height:0; overflow:hidden;}
 .rail-link{
