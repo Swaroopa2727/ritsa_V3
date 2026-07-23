@@ -62,10 +62,39 @@
       <span class="kbd-hint">Ctrl + K</span>
     </div> -->
     <div class="topbar-actions">
-      <div class="tb-icon">
-        <i class="bi bi-bell"></i>
-        <span class="badge-dot">0</span>
-        <span class="lbl">Notifications</span>
+      <div class="dropdown tb-icon" id="notifDropdownWrap">
+        <a class="tb-icon-toggle" href="#" role="button" id="notifDropdown" data-bs-toggle="dropdown" aria-expanded="false" title="Notifications">
+          <i class="bi bi-bell"></i>
+          <span class="badge-dot">2</span>
+          <span class="lbl">Notifications</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-end notif-dropdown" aria-labelledby="notifDropdown">
+          <div class="notif-head">
+            <h6 class="m-0">Notifications</h6>
+            <a href="#" class="notif-mark">Mark all read</a>
+          </div>
+          <div class="notif-divider"></div>
+          <a class="notif-item unread" href="#">
+            <span class="notif-ic" style="background:linear-gradient(135deg,var(--accent-teal),var(--accent-teal-dk));"><i class="bi bi-box-seam"></i></span>
+            <div class="notif-body">
+              <div class="notif-title">Low stock alert: Paracetamol IP</div>
+              <div class="notif-sub">Raw material below minimum threshold (250 KG remaining)</div>
+              <div class="notif-time">10 min ago</div>
+            </div>
+            <span class="notif-dot"></span>
+          </a>
+          <a class="notif-item unread" href="#">
+            <span class="notif-ic" style="background:linear-gradient(135deg,var(--accent-purple),var(--accent-purple-dk));"><i class="bi bi-eyedropper"></i></span>
+            <div class="notif-body">
+              <div class="notif-title">QC sample pending review</div>
+              <div class="notif-sub">Batch B240602 - Amoxicillin 250mg awaiting approval</div>
+              <div class="notif-time">1 hour ago</div>
+            </div>
+            <span class="notif-dot"></span>
+          </a>
+          <div class="notif-divider"></div>
+          <a href="#" class="notif-foot">View all notifications <i class="bi bi-arrow-right"></i></a>
+        </div>
       </div>
       <!-- <div class="tb-icon">
         <i class="bi bi-card-checklist"></i>
@@ -313,7 +342,7 @@
       <!-- Page head -->
       <div class="page-head">
         <div>
-          <div class="welcome">Welcome back, John Doe!</div>
+          <div class="welcome">Welcome back, Shailendra Singh!</div>
           <h1 class="brand-font">Dashboard</h1>
           <div class="sub">Here's what's happening in your business today.</div>
         </div>
