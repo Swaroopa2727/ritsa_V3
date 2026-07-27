@@ -7,10 +7,13 @@ const mastersPanel = document.getElementById('mastersPanel');
 const backdrop = document.getElementById('backdrop');
 const panelTitle = document.getElementById('panelTitle');
 const menuLists = document.querySelectorAll('.masters-list[data-menu]');
+const railToggleBtn = document.getElementById('railToggleBtn');
+const mainWrap = document.querySelector('.main-wrap');
 const isMobile = () => window.innerWidth < 992;
 const isTablet = () => window.innerWidth < 1200;
 
 let activeMenu = 'Dashboard';   // menu currently highlighted on the rail
+let panelCollapsed = false;     // whether the submenu panel is collapsed shut
 
 // Show only the submenu list that matches the active rail menu;
 // every other menu's submenu stays hidden.
@@ -27,6 +30,8 @@ function openPanel(menu){
   activeMenu = menu;
   showMenuContent(menu);
   mastersPanel.classList.add('show');
+  // Picking a menu always re-expands the submenu if it had been collapsed.
+  setPanelCollapsed(false);
   if(isTablet()){
     backdrop.classList.add('show');
   }
@@ -36,6 +41,25 @@ function closeAll(){
   mastersPanel.classList.remove('show');
   rail.classList.remove('show');
   backdrop.classList.remove('show');
+}
+
+// ---- Collapsible submenu (toggled from the rail-brand button) ----
+function setPanelCollapsed(collapsed){
+  panelCollapsed = collapsed;
+  mastersPanel.classList.toggle('collapsed', collapsed);
+  if(mainWrap) mainWrap.classList.toggle('panel-collapsed', collapsed);
+  if(railToggleBtn){
+    railToggleBtn.classList.toggle('is-collapsed', collapsed);
+    railToggleBtn.setAttribute('aria-expanded', String(!collapsed));
+    railToggleBtn.title = collapsed ? 'Expand submenu' : 'Collapse submenu';
+  }
+}
+
+if(railToggleBtn){
+  railToggleBtn.addEventListener('click', (e)=>{
+    e.stopPropagation();
+    setPanelCollapsed(!panelCollapsed);
+  });
 }
 
 document.getElementById('mobileToggleBtn').addEventListener('click', ()=>{

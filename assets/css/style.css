@@ -96,6 +96,16 @@ a{text-decoration:none;color:inherit;}
   /* box-shadow:0 4px 14px rgba(37,99,235,.45); */
   font-family: 'bootstrap-icons';
 }
+/* Brand mark doubles as the submenu collapse/expand toggle */
+.rail-toggle-btn{
+  border:none;
+  cursor:pointer;
+  transition:filter .15s ease, transform .2s ease;
+}
+.rail-toggle-btn i{font-size:13px; transition:transform .25s ease;}
+.rail-toggle-btn:hover{filter:brightness(1.18);}
+.rail-toggle-btn:active{transform:scale(.92);}
+.rail-toggle-btn.is-collapsed i{transform:rotate(180deg);}
 .rail-nav{display:flex; flex-direction:column; gap:5px; width:100%; align-items:center; flex:1; min-height:0; overflow:hidden;}
 .rail-link{
   width: 84px;
@@ -142,15 +152,27 @@ a{text-decoration:none;color:inherit;}
   left:84px;
   z-index:1030;
   overflow:hidden;
-  transition:transform .25s ease;
+  transition:transform .25s ease, width .25s ease, min-width .25s ease, border-color .25s ease;
+}
+/* Collapsed submenu: shrink the panel to nothing instead of forcing it open */
+.masters-panel.collapsed{
+  width:0;
+  min-width:0;
+  border-right-color:transparent;
 }
 .masters-panel-inner{
   height:100%;
+  width:210px;
   padding: 12px 14px 14px;
   overflow-y:auto;
   overflow-x:hidden;
   scrollbar-width:thin;
   scrollbar-color:#c9d3dc transparent;
+  transition:opacity .15s ease;
+}
+.masters-panel.collapsed .masters-panel-inner{
+  opacity:0;
+  pointer-events:none;
 }
 .masters-panel-inner::-webkit-scrollbar{width:5px;height:5px;}
 .masters-panel-inner::-webkit-scrollbar-thumb{background:#c9d3dc;border-radius:10px;}
@@ -223,6 +245,11 @@ a{text-decoration:none;color:inherit;}
   min-width:0;
   display:flex;
   flex-direction:column;
+  transition:margin-left .25s ease;
+}
+/* When the submenu panel is collapsed, let the content reclaim its space */
+.main-wrap.panel-collapsed{
+  margin-left:0;
 }
 
 /* Topbar â€” header to the right of the side menu, above the submenu / content */
@@ -242,10 +269,10 @@ a{text-decoration:none;color:inherit;}
   z-index:1050;
   width:auto;
 }
-.topbar-brand{display:flex; align-items:center; gap:12px; flex-shrink:0;}
+.topbar-brand{display:flex;align-items:center;gap:12px;flex-shrink:0;}
 .topbar-logo{
   width:130px;
-  /* height:44px; */
+  height: 40px;
   border-radius:10px;
   display:flex;
   align-items:center;
@@ -254,7 +281,7 @@ a{text-decoration:none;color:inherit;}
   overflow:hidden;
   flex-shrink:0;
 }
-.topbar-logo img{width:100%;height:100%;object-fit:contain;padding:5px;}
+.topbar-logo img{width:100%;height:100%;object-fit:contain;/* padding:5px; */}
 .topbar .search-wrap{
   flex:1; max-width:560px;
   background:var(--bg-page);
@@ -471,8 +498,8 @@ a{text-decoration:none;color:inherit;}
   .topbar-actions{gap:16px;}
 }
 @media (min-width: 1400px){
-  .topbar{padding:0 24px; gap:24px;}
-  .topbar-logo{width:150px;}
+  .topbar{padding: 0 24px 0px 0px;gap:24px;}
+  .topbar-logo{/* width:150px; */}
   .topbar-actions{gap:28px;}
 }
 @media (max-width: 575.98px){

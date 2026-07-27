@@ -25,20 +25,22 @@
   <!-- RAIL NAV — full-height side menu, positioned to the left of the header -->
   <nav class="rail" id="rail">
     <div class="rail-brand">
-      <span class="rail-brand-mark brand-font">R</span>
+      <button class="rail-brand-mark rail-toggle-btn" id="railToggleBtn" type="button" title="Collapse submenu" aria-label="Collapse submenu" aria-expanded="true">
+        <i class="bi bi-chevron-double-left"></i>
+      </button>
     </div>
     <div class="rail-nav">
       <a class="rail-link active" data-menu="Dashboard" title="Dashboard"><i class="bi bi-grid-1x2"></i><span>Dashboard</span></a>
       <a class="rail-link" data-menu="Master Data" title="Master Data"><i class="bi bi-archive"></i><span>Master Data</span></a>
       <a class="rail-link" data-menu="Procurement" title="Procurement"><i class="bi bi-cart3"></i><span>Procurement</span></a>
       <a class="rail-link" data-menu="Goods Receipt" title="Goods Receipt"><i class="bi bi-box-seam"></i><span>Goods Receipt</span></a>
-      <a class="rail-link" data-menu="Quality Management" title="Quality Management"><i class="bi bi-eyedropper"></i><span>Quality</span></a>
+      <a class="rail-link" data-menu="Quality Management" title="Quality Management"><i class="bi bi-eyedropper"></i><span>Quality Control</span></a>
       <a class="rail-link" data-menu="Production" title="Production"><i class="bi bi-diagram-3"></i><span>Production</span></a>
       <a class="rail-link" data-menu="Warehouse" title="Warehouse"><i class="bi bi-shield-check"></i><span>Warehouse</span></a>
       <a class="rail-link" data-menu="Finished Goods" title="Finished Goods"><i class="bi bi-capsule"></i><span>Finished Goods</span></a>
       <a class="rail-link" data-menu="Sales &amp; Dispatch" title="Sales & Dispatch"><i class="bi bi-graph-up-arrow"></i><span>Sales &amp; Dispatch</span></a>
       <a class="rail-link" data-menu="Reports &amp; Analytics" title="Reports & Analytics"><i class="bi bi-file-earmark-text"></i><span>Reports</span></a>
-      <a class="rail-link" data-menu="Workflow &amp; Approvals" title="Workflow & Approvals"><i class="bi bi-check2-square"></i><span>Workflow</span></a>
+      <!-- <a class="rail-link" data-menu="Workflow &amp; Approvals" title="Workflow & Approvals"><i class="bi bi-check2-square"></i><span>Workflow</span></a> -->
       <a class="rail-link" data-menu="Compliance" title="Compliance"><i class="bi bi-patch-check"></i><span>Compliance</span></a>
       <a class="rail-link" data-menu="Administration" title="Administration"><i class="bi bi-people"></i><span>Admin</span></a>
     </div>
@@ -293,14 +295,14 @@
       <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-sliders"></i></span>Custom Reports</div></li>
     </ul>
 
-    <ul class="masters-list" data-menu="Workflow &amp; Approvals" style="display:none">
+    <!-- <ul class="masters-list" data-menu="Workflow &amp; Approvals" style="display:none">
       <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-inbox"></i></span>Approval Inbox</div></li>
       <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-hourglass-split"></i></span>Pending Approvals</div></li>
       <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-diagram-3"></i></span>Workflow Designer</div></li>
       <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-arrow-up-circle"></i></span>Escalation Rules</div></li>
       <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-envelope"></i></span>Email Notifications</div></li>
       <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-clock-history"></i></span>Approval History</div></li>
-    </ul>
+    </ul> -->
 
     <ul class="masters-list" data-menu="Compliance" style="display:none">
       <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-shield-lock"></i></span>Audit Trail</div></li>
