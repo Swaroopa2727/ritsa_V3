@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RITSA | Material Master</title>
+<title>RITSA | Add Event</title>
 
 <!-- Bootstrap 5 -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
@@ -30,8 +30,8 @@
       </button>
     </div>
     <div class="rail-nav">
-      <a class="rail-link" data-menu="Dashboard" title="Dashboard"><i class="bi bi-grid-1x2"></i><span>Dashboard</span></a>
-      <a class="rail-link active" data-menu="Masters" title="Masters"><i class="bi bi-archive"></i><span>Masters</span></a>
+      <a class="rail-link active" data-menu="Dashboard" title="Dashboard"><i class="bi bi-grid-1x2"></i><span>Dashboard</span></a>
+      <a class="rail-link" data-menu="Masters" title="Masters"><i class="bi bi-archive"></i><span>Masters</span></a>
       <a class="rail-link" data-menu="Procurement" title="Procurement"><i class="bi bi-cart3"></i><span>Procurement</span></a>
       <a class="rail-link" data-menu="Goods Receipt" title="Goods Receipt"><i class="bi bi-box-seam"></i><span>Goods Receipt</span></a>
       <a class="rail-link" data-menu="Quality Management" title="Quality Management"><i class="bi bi-eyedropper"></i><span>Quality Control</span></a>
@@ -147,20 +147,20 @@
       <input type="text" placeholder="Search...">
     </div> -->
 
-    <ul class="masters-list" data-menu="Dashboard" style="display:none">
+    <ul class="masters-list" data-menu="Dashboard">
       <li class="master-item"><a class="m-row" href="./index.html"><span class="m-ic"><i class="bi bi-speedometer2"></i></span>Overview</a></li>
       <li class="master-item"><a class="m-row" href="./kpi-dashboard.html"><span class="m-ic"><i class="bi bi-bar-chart-line"></i></span>KPI Dashboard</a></li>
       <li class="master-item"><a class="m-row" href="./notifications.html"><span class="m-ic"><i class="bi bi-bell"></i></span>Notifications</a></li>
-      <li class="master-item"><a class="m-row" href="./calendar.html"><span class="m-ic"><i class="bi bi-calendar3"></i></span>Calendar</a></li>
+      <li class="master-item"><a class="m-row active-sub" href="./calendar.html"><span class="m-ic"><i class="bi bi-calendar3"></i></span>Calendar</a></li>
       <!-- <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-clock-history"></i></span>Recent Activities</div></li> -->
     </ul>
 
-    <ul class="masters-list" data-menu="Masters">
+    <ul class="masters-list" data-menu="Masters" style="display:none">
       <li class="master-item"><a class="m-row" href="./organization.html"><span class="m-ic"><i class="bi bi-building"></i></span>Organization</a></li>
       <li class="master-item"><a class="m-row" href="./plants-facilities.html"><span class="m-ic"><i class="bi bi-buildings"></i></span>Plants &amp; Facilities</a></li>
       <li class="master-item"><a class="m-row" href="./warehouse.html"><span class="m-ic"><i class="bi bi-house-gear"></i></span>Warehouse</a></li>
       <li class="master-item"><a class="m-row" href="./storage-locations.html"><span class="m-ic"><i class="bi bi-geo-alt"></i></span>Storage Locations</a></li>
-      <li class="master-item"><a class="m-row active-sub" href="./material-master.html"><span class="m-ic"><i class="bi bi-box"></i></span>Material Master</a></li>
+      <li class="master-item"><a class="m-row" href="./material-master.html"><span class="m-ic"><i class="bi bi-box"></i></span>Material Master</a></li>
       <li class="master-item"><a class="m-row" href="./product-master.html"><span class="m-ic"><i class="bi bi-capsule"></i></span>Product Master</a></li>
       <li class="master-item"><a class="m-row" href="./bill-of-materials.html"><span class="m-ic"><i class="bi bi-diagram-3"></i></span>Bill of Materials (BOM)</a></li>
       <li class="master-item"><a class="m-row" href="./recipes-formulas.html"><span class="m-ic"><i class="bi bi-journal-text"></i></span>Recipes / Formulas</a></li>
@@ -342,146 +342,77 @@
     <main class="content-area">
 
       <!-- Page head -->
-      <div class="page-head">
-        <div>
-          <!-- <div class="welcome">Masters</div> -->
-          <h1 class="brand-font">Material Master</h1>
-          <!-- <div class="sub">Manage raw materials, packaging materials and other items used across procurement, production and inventory.</div> -->
-        </div>
-        <a class="btn-customize" href="./add-material-master.html">
-          <i class="bi bi-plus-lg"></i> Add New
-        </a>
+      <div class="form-page-head">
+        <h1 class="form-page-title">New Event</h1>
+        <a href="./calendar.html" class="btn-navy">Back to Calendar</a>
       </div>
 
-      <!-- Organization table -->
+      <!-- Form -->
       <div class="row g-3 mb-3">
         <div class="col-12">
-          <div class="panel-card">
-            <!-- <div class="panel-head">
-              <h5>Material Master</h5>
-              <span class="range-btn" style="pointer-events:none;"><i class="bi bi-box"></i> 8 Records</span>
-            </div> -->
-            <div class="table-responsive">
-              <table class="table-orders" id="orgTable">
-                <thead>
-                  <tr><th style="width:60px;">S.No.</th><th>Material Code</th><th>Material Name</th><th>Category</th><th>UOM</th><th>Status</th><th style="width:110px;">Actions</th></tr>
-                </thead>
-                <tbody id="orgTableBody">
-                  <tr>
-                    <td>1</td>
-                    <td class="order-no">RM-0001</td>
-                    <td>Paracetamol IP</td>
-                    <td>Raw Material</td>
-                    <td>KG</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td class="order-no">RM-0002</td>
-                    <td>Amoxicillin Trihydrate</td>
-                    <td>Raw Material</td>
-                    <td>KG</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td class="order-no">RM-0003</td>
-                    <td>Microcrystalline Cellulose</td>
-                    <td>Raw Material</td>
-                    <td>KG</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td class="order-no">PM-0001</td>
-                    <td>Blister Foil – Alu/Alu</td>
-                    <td>Packaging Material</td>
-                    <td>Meter</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td class="order-no">PM-0002</td>
-                    <td>Carton Box – 10x10x5</td>
-                    <td>Packaging Material</td>
-                    <td>Nos</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>6</td>
-                    <td class="order-no">SF-0001</td>
-                    <td>Amoxicillin 250mg Granules</td>
-                    <td>Semi-Finished</td>
-                    <td>KG</td>
-                    <td><span class="status-pill status-progress">Under Review</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>7</td>
-                    <td class="order-no">FG-0001</td>
-                    <td>Paracetamol 500mg Tablets</td>
-                    <td>Finished Goods</td>
-                    <td>Box</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>8</td>
-                    <td class="order-no">OT-0001</td>
-                    <td>Isopropyl Alcohol – Cleaning Grade</td>
-                    <td>Others</td>
-                    <td>Litre</td>
-                    <td><span class="status-pill status-planned">Inactive</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div class="panel-card form-card">
+            <form id="addForm" class="data-form">
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <label for="evtTitle" class="form-label">Event Title</label>
+                  <input type="text" class="form-control" id="evtTitle" placeholder="e.g. QC Audit – Amoxicillin Line" required>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="evtCategory" class="form-label">Category</label>
+                  <select class="form-select" id="evtCategory" required>
+                    <option value="" selected disabled>Select category</option>
+                    <option value="Production">Production</option>
+                    <option value="Quality">Quality</option>
+                    <option value="Procurement">Procurement</option>
+                    <option value="Dispatch">Dispatch</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Warehouse">Warehouse</option>
+                    <option value="Maintenance">Maintenance</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-4">
+                  <label for="evtDate" class="form-label">Date</label>
+                  <input type="date" class="form-control" id="evtDate" value="2026-07-29" required>
+                </div>
+                <div class="col-12 col-md-4">
+                  <label for="evtTime" class="form-label">Time</label>
+                  <input type="time" class="form-control" id="evtTime" placeholder="">
+                </div>
+                <div class="col-12 col-md-4">
+                  <label for="evtReminder" class="form-label">Reminder</label>
+                  <select class="form-select" id="evtReminder">
+                    <option value="None" selected>None</option>
+                    <option value="15 minutes before">15 minutes before</option>
+                    <option value="1 hour before">1 hour before</option>
+                    <option value="1 day before">1 day before</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="evtReference" class="form-label">Related Reference</label>
+                  <input type="text" class="form-control" id="evtReference" placeholder="e.g. Batch No., PO No., Invoice No. (optional)">
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="evtStatus" class="form-label">Status</label>
+                  <select class="form-select" id="evtStatus" required>
+                    <option value="Scheduled" selected>Scheduled</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Cancelled">Cancelled</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label for="evtNotes" class="form-label">Notes</label>
+                  <textarea class="form-control" id="evtNotes" rows="3" placeholder="Additional details about this event (optional)"></textarea>
+                </div>
+              </div>
+
+              <hr class="form-divider">
+
+              <div class="form-card-actions">
+                <button type="submit" class="btn-navy"><i class="bi bi-check2"></i> Save</button>
+                <a href="./calendar.html" class="btn-navy">Cancel</a>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -504,43 +435,27 @@
 <script src="./assets/js/chart.umd.min.js"></script>
 <script src="./assets/js/script.js"></script>
 <script>
-  // This page opens on the "Masters" rail menu with "Organization" highlighted.
-  if (typeof activeMenu !== 'undefined') { activeMenu = 'Masters'; initLayout(); }
+  // This page opens on the "Dashboard" rail menu with "Calendar" highlighted in the submenu.
+  if (typeof activeMenu !== 'undefined') { activeMenu = 'Dashboard'; initLayout(); }
 
-  const statusClassFor = (status) => status === 'Active' ? 'status-completed' : (status === 'Under Review' ? 'status-progress' : 'status-planned');
+  // Save the new event to localStorage, then return to the Calendar page.
+  document.getElementById('addForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const title = document.getElementById('evtTitle').value.trim();
+    const category = document.getElementById('evtCategory').value;
+    const date = document.getElementById('evtDate').value;
+    const time = document.getElementById('evtTime').value;
+    const reminder = document.getElementById('evtReminder').value;
+    const reference = document.getElementById('evtReference').value.trim();
+    const status = document.getElementById('evtStatus').value;
+    const notes = document.getElementById('evtNotes').value.trim();
+    if(!title || !category || !date) return;
 
-  function addMaterialRow(code, name, category, uom, status){
-    const tbody = document.getElementById('orgTableBody');
-    const sno = tbody.querySelectorAll('tr').length + 1;
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td>${sno}</td>
-      <td class="order-no">${code}</td>
-      <td>${name}</td>
-      <td>${category}</td>
-      <td>${uom}</td>
-      <td><span class="status-pill ${statusClassFor(status)}">${status}</span></td>
-      <td>
-        <div class="d-flex gap-2">
-          <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-          <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-        </div>
-      </td>`;
-    tbody.appendChild(tr);
-  }
+    const list = JSON.parse(localStorage.getItem('ritsa_events') || '[]');
+    list.push({ title, category, date, time, reminder, reference, status, notes });
+    localStorage.setItem('ritsa_events', JSON.stringify(list));
 
-  // Load any materials saved from the standalone "Add Material Master" page.
-  JSON.parse(localStorage.getItem('ritsa_materials') || '[]')
-    .forEach(m => addMaterialRow(m.code, m.name, m.category, m.uom, m.status));
-
-  // Delete row on click (event delegation) + renumber S.No.
-  document.getElementById('orgTableBody').addEventListener('click', function(e){
-    const btn = e.target.closest('.row-ic-btn.danger');
-    if(!btn) return;
-    btn.closest('tr').remove();
-    [...document.querySelectorAll('#orgTableBody tr')].forEach((tr,i)=>{
-      tr.children[0].textContent = i+1;
-    });
+    window.location.href = './calendar.html';
   });
 </script>
 </body>

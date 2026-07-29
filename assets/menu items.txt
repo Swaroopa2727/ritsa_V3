@@ -3,7 +3,6 @@
 ├── KPI Dashboard
 ├── Notifications
 ├── Calendar
-├── Recent Activities
 
 📦 Master Data
 ├── Organization
@@ -14,16 +13,13 @@
 ├── Product Master
 ├── Bill of Materials (BOM)
 ├── Recipes / Formulas
-├── Business Partners
 ├── Vendors
 ├── Customers
-├── Employees
 ├── Unit of Measure (UOM)
 ├── Tax Configuration
 ├── Currency
 ├── Batch Numbering
 ├── Document Numbering
-└── System Configuration
 
 🛒 Procurement
 ├── Purchase Requisition

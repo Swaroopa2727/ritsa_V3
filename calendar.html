@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RITSA | Material Master</title>
+<title>RITSA | Calendar</title>
 
 <!-- Bootstrap 5 -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
@@ -14,6 +14,37 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="./assets/css/style.css">
+<style>
+  .cal-panel{padding:20px;}
+  .cal-toolbar{display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:10px;}
+  .cal-nav{display:flex; align-items:center; gap:12px;}
+  .cal-nav-btn{width:32px; height:32px; border-radius:8px; border:1px solid var(--border-c); background:#fff; color:var(--text-dark); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .15s;}
+  .cal-nav-btn:hover{background:#F8FAFC;}
+  .cal-month-label{font-size:15px; font-weight:700; color:var(--text-dark); min-width:120px; text-align:center;}
+  .cal-today-btn{border:1px solid var(--border-c); background:#fff; color:var(--text-dark); font-size:12.5px; font-weight:600; padding:7px 16px; border-radius:8px; cursor:pointer; transition:background .15s;}
+  .cal-today-btn:hover{background:#F8FAFC;}
+  .cal-panel *{box-sizing:border-box;}
+  .cal-weekday-row{display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-bottom:6px;}
+  .cal-weekday-row div{text-align:center; font-size:11.5px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:.03em; padding-bottom:6px;}
+  .cal-grid{display:grid; grid-template-columns:repeat(7,1fr); grid-auto-rows:1fr; gap:6px;}
+  .cal-day{border:1px solid var(--border-c); border-radius:10px; min-height:92px; padding:8px; background:#fff; display:flex; flex-direction:column; align-items:stretch; gap:4px; overflow:hidden;}
+  .cal-day.other-month{background:#FAFBFC; border-color:transparent;}
+  .cal-day.today{border-color:var(--sidebar-active-dk); background:#EFF6FF;}
+  .cal-day-num{font-size:12.5px; font-weight:700; color:var(--text-dark);}
+  .cal-day.today .cal-day-num{color:var(--sidebar-active-dk);}
+  .cal-event-chip{font-size:10.5px; font-weight:600; padding:3px 6px; border-radius:5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:flex; align-items:center; gap:4px;}
+  .cal-event-dot{width:5px; height:5px; border-radius:50%; flex-shrink:0;}
+  .cal-legend{display:flex; flex-wrap:wrap; gap:14px; margin-top:16px; padding-top:14px; border-top:1px solid var(--border-c);}
+  .cal-legend-item{display:flex; align-items:center; gap:6px; font-size:12px; font-weight:600; color:var(--text-muted);}
+  .cal-legend-dot{width:8px; height:8px; border-radius:50%; flex-shrink:0;}
+  .upcoming-list{display:flex; flex-direction:column; gap:10px; padding:16px 20px;}
+  .upcoming-item{display:flex; align-items:center; gap:12px;}
+  .upcoming-date{width:46px; height:46px; border-radius:10px; display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0;}
+  .upcoming-date .d{font-size:15px; font-weight:800; line-height:1.1;}
+  .upcoming-date .m{font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.03em;}
+  .upcoming-title{font-size:13px; font-weight:600; color:var(--text-dark); line-height:1.3;}
+  .upcoming-sub{font-size:11.5px; color:var(--text-muted); margin-top:2px;}
+</style>
 </head>
 <body>
 
@@ -30,8 +61,8 @@
       </button>
     </div>
     <div class="rail-nav">
-      <a class="rail-link" data-menu="Dashboard" title="Dashboard"><i class="bi bi-grid-1x2"></i><span>Dashboard</span></a>
-      <a class="rail-link active" data-menu="Masters" title="Masters"><i class="bi bi-archive"></i><span>Masters</span></a>
+      <a class="rail-link active" data-menu="Dashboard" title="Dashboard"><i class="bi bi-grid-1x2"></i><span>Dashboard</span></a>
+      <a class="rail-link" data-menu="Masters" title="Masters"><i class="bi bi-archive"></i><span>Masters</span></a>
       <a class="rail-link" data-menu="Procurement" title="Procurement"><i class="bi bi-cart3"></i><span>Procurement</span></a>
       <a class="rail-link" data-menu="Goods Receipt" title="Goods Receipt"><i class="bi bi-box-seam"></i><span>Goods Receipt</span></a>
       <a class="rail-link" data-menu="Quality Management" title="Quality Management"><i class="bi bi-eyedropper"></i><span>Quality Control</span></a>
@@ -139,7 +170,7 @@
   <aside class="masters-panel" id="mastersPanel">
     <div class="masters-panel-inner">
     <div class="d-flex align-items-center">
-      <h6 class="title mb-0" id="panelTitle">Masters</h6>
+      <h6 class="title mb-0" id="panelTitle">Dashboard</h6>
       <button class="masters-close" id="mastersCloseBtn"><i class="bi bi-x-lg"></i></button>
     </div>
     <!-- <div class="masters-search">
@@ -147,20 +178,20 @@
       <input type="text" placeholder="Search...">
     </div> -->
 
-    <ul class="masters-list" data-menu="Dashboard" style="display:none">
+    <ul class="masters-list" data-menu="Dashboard">
       <li class="master-item"><a class="m-row" href="./index.html"><span class="m-ic"><i class="bi bi-speedometer2"></i></span>Overview</a></li>
       <li class="master-item"><a class="m-row" href="./kpi-dashboard.html"><span class="m-ic"><i class="bi bi-bar-chart-line"></i></span>KPI Dashboard</a></li>
       <li class="master-item"><a class="m-row" href="./notifications.html"><span class="m-ic"><i class="bi bi-bell"></i></span>Notifications</a></li>
-      <li class="master-item"><a class="m-row" href="./calendar.html"><span class="m-ic"><i class="bi bi-calendar3"></i></span>Calendar</a></li>
+      <li class="master-item"><a class="m-row active-sub" href="./calendar.html"><span class="m-ic"><i class="bi bi-calendar3"></i></span>Calendar</a></li>
       <!-- <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-clock-history"></i></span>Recent Activities</div></li> -->
     </ul>
 
-    <ul class="masters-list" data-menu="Masters">
+    <ul class="masters-list" data-menu="Masters" style="display:none">
       <li class="master-item"><a class="m-row" href="./organization.html"><span class="m-ic"><i class="bi bi-building"></i></span>Organization</a></li>
       <li class="master-item"><a class="m-row" href="./plants-facilities.html"><span class="m-ic"><i class="bi bi-buildings"></i></span>Plants &amp; Facilities</a></li>
       <li class="master-item"><a class="m-row" href="./warehouse.html"><span class="m-ic"><i class="bi bi-house-gear"></i></span>Warehouse</a></li>
       <li class="master-item"><a class="m-row" href="./storage-locations.html"><span class="m-ic"><i class="bi bi-geo-alt"></i></span>Storage Locations</a></li>
-      <li class="master-item"><a class="m-row active-sub" href="./material-master.html"><span class="m-ic"><i class="bi bi-box"></i></span>Material Master</a></li>
+      <li class="master-item"><a class="m-row" href="./material-master.html"><span class="m-ic"><i class="bi bi-box"></i></span>Material Master</a></li>
       <li class="master-item"><a class="m-row" href="./product-master.html"><span class="m-ic"><i class="bi bi-capsule"></i></span>Product Master</a></li>
       <li class="master-item"><a class="m-row" href="./bill-of-materials.html"><span class="m-ic"><i class="bi bi-diagram-3"></i></span>Bill of Materials (BOM)</a></li>
       <li class="master-item"><a class="m-row" href="./recipes-formulas.html"><span class="m-ic"><i class="bi bi-journal-text"></i></span>Recipes / Formulas</a></li>
@@ -344,143 +375,211 @@
       <!-- Page head -->
       <div class="page-head">
         <div>
-          <!-- <div class="welcome">Masters</div> -->
-          <h1 class="brand-font">Material Master</h1>
-          <!-- <div class="sub">Manage raw materials, packaging materials and other items used across procurement, production and inventory.</div> -->
+          <!-- <div class="welcome">Dashboard</div> -->
+          <h1 class="brand-font">Calendar</h1>
+          <!-- <div class="sub">Production, quality, procurement and finance events across the organization.</div> -->
         </div>
-        <a class="btn-customize" href="./add-material-master.html">
-          <i class="bi bi-plus-lg"></i> Add New
+        <a class="btn-customize" href="./add-event.html">
+          <i class="bi bi-plus-lg"></i> Add Event
         </a>
       </div>
 
-      <!-- Organization table -->
       <div class="row g-3 mb-3">
-        <div class="col-12">
-          <div class="panel-card">
-            <!-- <div class="panel-head">
-              <h5>Material Master</h5>
-              <span class="range-btn" style="pointer-events:none;"><i class="bi bi-box"></i> 8 Records</span>
-            </div> -->
-            <div class="table-responsive">
-              <table class="table-orders" id="orgTable">
-                <thead>
-                  <tr><th style="width:60px;">S.No.</th><th>Material Code</th><th>Material Name</th><th>Category</th><th>UOM</th><th>Status</th><th style="width:110px;">Actions</th></tr>
-                </thead>
-                <tbody id="orgTableBody">
-                  <tr>
-                    <td>1</td>
-                    <td class="order-no">RM-0001</td>
-                    <td>Paracetamol IP</td>
-                    <td>Raw Material</td>
-                    <td>KG</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td class="order-no">RM-0002</td>
-                    <td>Amoxicillin Trihydrate</td>
-                    <td>Raw Material</td>
-                    <td>KG</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td class="order-no">RM-0003</td>
-                    <td>Microcrystalline Cellulose</td>
-                    <td>Raw Material</td>
-                    <td>KG</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td class="order-no">PM-0001</td>
-                    <td>Blister Foil – Alu/Alu</td>
-                    <td>Packaging Material</td>
-                    <td>Meter</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td class="order-no">PM-0002</td>
-                    <td>Carton Box – 10x10x5</td>
-                    <td>Packaging Material</td>
-                    <td>Nos</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>6</td>
-                    <td class="order-no">SF-0001</td>
-                    <td>Amoxicillin 250mg Granules</td>
-                    <td>Semi-Finished</td>
-                    <td>KG</td>
-                    <td><span class="status-pill status-progress">Under Review</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>7</td>
-                    <td class="order-no">FG-0001</td>
-                    <td>Paracetamol 500mg Tablets</td>
-                    <td>Finished Goods</td>
-                    <td>Box</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>8</td>
-                    <td class="order-no">OT-0001</td>
-                    <td>Isopropyl Alcohol – Cleaning Grade</td>
-                    <td>Others</td>
-                    <td>Litre</td>
-                    <td><span class="status-pill status-planned">Inactive</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+        <div class="col-12 col-xl-8">
+          <div class="panel-card cal-panel">
+            <div class="cal-toolbar">
+              <div class="cal-nav">
+                <button type="button" class="cal-nav-btn" id="calPrevBtn"><i class="bi bi-chevron-left"></i></button>
+                <span class="cal-month-label">July 2026</span>
+                <button type="button" class="cal-nav-btn" id="calNextBtn"><i class="bi bi-chevron-right"></i></button>
+              </div>
+              <button type="button" class="cal-today-btn" id="calTodayBtn">Today</button>
+            </div>
+            <div class="cal-weekday-row">
+              <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+            </div>
+            <div class="cal-grid" id="calGrid">
+          <div class="cal-day other-month"></div>
+          <div class="cal-day other-month"></div>
+          <div class="cal-day other-month"></div>
+          <div class="cal-day" data-day="1">
+              <div class="cal-day-num">1</div>
+              </div>
+          <div class="cal-day" data-day="2">
+              <div class="cal-day-num">2</div>
+              <div class="cal-event-chip" style="background:#F973161A;color:#F97316;" title="Batch B240610 Production Start"><span class="cal-event-dot" style="background:#F97316;"></span>Batch B240610 Production Start</div>
+              </div>
+          <div class="cal-day" data-day="3">
+              <div class="cal-day-num">3</div>
+              <div class="cal-event-chip" style="background:#EC48991A;color:#EC4899;" title="Vendor Payment Due – Sterling Packaging"><span class="cal-event-dot" style="background:#EC4899;"></span>Vendor Payment Due – Sterling Packaging</div>
+              </div>
+          <div class="cal-day" data-day="4">
+              <div class="cal-day-num">4</div>
+              </div>
+          <div class="cal-day" data-day="5">
+              <div class="cal-day-num">5</div>
+              </div>
+          <div class="cal-day" data-day="6">
+              <div class="cal-day-num">6</div>
+              <div class="cal-event-chip" style="background:#7C5CFC1A;color:#7C5CFC;" title="QC Audit – Amoxicillin Line"><span class="cal-event-dot" style="background:#7C5CFC;"></span>QC Audit – Amoxicillin Line</div>
+              </div>
+          <div class="cal-day" data-day="7">
+              <div class="cal-day-num">7</div>
+              </div>
+          <div class="cal-day" data-day="8">
+              <div class="cal-day-num">8</div>
+              <div class="cal-event-chip" style="background:#EF44441A;color:#EF4444;" title="Equipment Maintenance – Compression Machine #3"><span class="cal-event-dot" style="background:#EF4444;"></span>Equipment Maintenance – Compression Machine #3</div>
+              </div>
+          <div class="cal-day" data-day="9">
+              <div class="cal-day-num">9</div>
+              </div>
+          <div class="cal-day" data-day="10">
+              <div class="cal-day-num">10</div>
+              <div class="cal-event-chip" style="background:#14B8A61A;color:#14B8A6;" title="GRN Expected – Apex Pharma Chemicals"><span class="cal-event-dot" style="background:#14B8A6;"></span>GRN Expected – Apex Pharma Chemicals</div>
+              </div>
+          <div class="cal-day" data-day="11">
+              <div class="cal-day-num">11</div>
+              </div>
+          <div class="cal-day" data-day="12">
+              <div class="cal-day-num">12</div>
+              </div>
+          <div class="cal-day" data-day="13">
+              <div class="cal-day-num">13</div>
+              <div class="cal-event-chip" style="background:#22C55E1A;color:#22C55E;" title="Monthly Stock Reconciliation"><span class="cal-event-dot" style="background:#22C55E;"></span>Monthly Stock Reconciliation</div>
+              </div>
+          <div class="cal-day" data-day="14">
+              <div class="cal-day-num">14</div>
+              </div>
+          <div class="cal-day" data-day="15">
+              <div class="cal-day-num">15</div>
+              <div class="cal-event-chip" style="background:#EC48991A;color:#EC4899;" title="GST Return Filing Due"><span class="cal-event-dot" style="background:#EC4899;"></span>GST Return Filing Due</div>
+              </div>
+          <div class="cal-day" data-day="16">
+              <div class="cal-day-num">16</div>
+              </div>
+          <div class="cal-day" data-day="17">
+              <div class="cal-day-num">17</div>
+              <div class="cal-event-chip" style="background:#F973161A;color:#F97316;" title="Product Launch Review – Vitamin C Effervescent"><span class="cal-event-dot" style="background:#F97316;"></span>Product Launch Review – Vitamin C Effervescent</div>
+              </div>
+          <div class="cal-day" data-day="18">
+              <div class="cal-day-num">18</div>
+              </div>
+          <div class="cal-day" data-day="19">
+              <div class="cal-day-num">19</div>
+              </div>
+          <div class="cal-day" data-day="20">
+              <div class="cal-day-num">20</div>
+              <div class="cal-event-chip" style="background:#2563EB1A;color:#2563EB;" title="Customer Dispatch – MedPlus Pharmacy"><span class="cal-event-dot" style="background:#2563EB;"></span>Customer Dispatch – MedPlus Pharmacy</div>
+              </div>
+          <div class="cal-day" data-day="21">
+              <div class="cal-day-num">21</div>
+              </div>
+          <div class="cal-day" data-day="22">
+              <div class="cal-day-num">22</div>
+              <div class="cal-event-chip" style="background:#7C5CFC1A;color:#7C5CFC;" title="Internal Quality Audit"><span class="cal-event-dot" style="background:#7C5CFC;"></span>Internal Quality Audit</div>
+              </div>
+          <div class="cal-day" data-day="23">
+              <div class="cal-day-num">23</div>
+              </div>
+          <div class="cal-day" data-day="24">
+              <div class="cal-day-num">24</div>
+              <div class="cal-event-chip" style="background:#14B8A61A;color:#14B8A6;" title="Vendor Review Meeting – Global Excipients"><span class="cal-event-dot" style="background:#14B8A6;"></span>Vendor Review Meeting – Global Excipients</div>
+              </div>
+          <div class="cal-day" data-day="25">
+              <div class="cal-day-num">25</div>
+              </div>
+          <div class="cal-day" data-day="26">
+              <div class="cal-day-num">26</div>
+              </div>
+          <div class="cal-day" data-day="27">
+              <div class="cal-day-num">27</div>
+              <div class="cal-event-chip" style="background:#7C5CFC1A;color:#7C5CFC;" title="Batch B240622 QC Release"><span class="cal-event-dot" style="background:#7C5CFC;"></span>Batch B240622 QC Release</div>
+              </div>
+          <div class="cal-day" data-day="28">
+              <div class="cal-day-num">28</div>
+              </div>
+          <div class="cal-day today" data-day="29">
+              <div class="cal-day-num">29</div>
+              <div class="cal-event-chip" style="background:#EC48991A;color:#EC4899;" title="Currency Rate Review"><span class="cal-event-dot" style="background:#EC4899;"></span>Currency Rate Review</div>
+              </div>
+          <div class="cal-day" data-day="30">
+              <div class="cal-day-num">30</div>
+              </div>
+          <div class="cal-day" data-day="31">
+              <div class="cal-day-num">31</div>
+              <div class="cal-event-chip" style="background:#EC48991A;color:#EC4899;" title="Month-End Closing"><span class="cal-event-dot" style="background:#EC4899;"></span>Month-End Closing</div>
+              </div>
+          <div class="cal-day other-month"></div>
+            </div>
+            <div class="cal-legend">
+<span class="cal-legend-item"><span class="cal-legend-dot" style="background:#F97316;"></span>Production</span>
+<span class="cal-legend-item"><span class="cal-legend-dot" style="background:#7C5CFC;"></span>Quality</span>
+<span class="cal-legend-item"><span class="cal-legend-dot" style="background:#14B8A6;"></span>Procurement</span>
+<span class="cal-legend-item"><span class="cal-legend-dot" style="background:#2563EB;"></span>Dispatch</span>
+<span class="cal-legend-item"><span class="cal-legend-dot" style="background:#EC4899;"></span>Finance</span>
+<span class="cal-legend-item"><span class="cal-legend-dot" style="background:#22C55E;"></span>Warehouse</span>
+<span class="cal-legend-item"><span class="cal-legend-dot" style="background:#EF4444;"></span>Maintenance</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-xl-4">
+          <div class="panel-card" style="height:100%;">
+            <div class="panel-head">
+              <h5>Upcoming Events</h5>
+              <span class="range-btn" style="pointer-events:none;"><i class="bi bi-calendar-event"></i> Next 5</span>
+            </div>
+            <div class="upcoming-list" id="upcomingList">
+              <div class="upcoming-item">
+                <div class="upcoming-date" style="color:#EC4899;background:#EC48991A;">
+                  <span class="d">29</span>
+                  <span class="m">Jul</span>
+                </div>
+                <div class="upcoming-body">
+                  <div class="upcoming-title">Currency Rate Review</div>
+                  <div class="upcoming-sub">Today &middot; <span style="color:#EC4899;font-weight:600;">Finance</span></div>
+                </div>
+              </div>
+              <div class="upcoming-item">
+                <div class="upcoming-date" style="color:#EC4899;background:#EC48991A;">
+                  <span class="d">31</span>
+                  <span class="m">Jul</span>
+                </div>
+                <div class="upcoming-body">
+                  <div class="upcoming-title">Month-End Closing</div>
+                  <div class="upcoming-sub">Thu &middot; <span style="color:#EC4899;font-weight:600;">Finance</span></div>
+                </div>
+              </div>
+              <div class="upcoming-item">
+                <div class="upcoming-date" style="color:#F97316;background:#F973161A;">
+                  <span class="d">01</span>
+                  <span class="m">Aug</span>
+                </div>
+                <div class="upcoming-body">
+                  <div class="upcoming-title">Production Planning Meeting</div>
+                  <div class="upcoming-sub">Fri &middot; <span style="color:#F97316;font-weight:600;">Production</span></div>
+                </div>
+              </div>
+              <div class="upcoming-item">
+                <div class="upcoming-date" style="color:#7C5CFC;background:#7C5CFC1A;">
+                  <span class="d">03</span>
+                  <span class="m">Aug</span>
+                </div>
+                <div class="upcoming-body">
+                  <div class="upcoming-title">Batch Record Review – B240630</div>
+                  <div class="upcoming-sub">Sun &middot; <span style="color:#7C5CFC;font-weight:600;">Quality</span></div>
+                </div>
+              </div>
+              <div class="upcoming-item">
+                <div class="upcoming-date" style="color:#14B8A6;background:#14B8A61A;">
+                  <span class="d">05</span>
+                  <span class="m">Aug</span>
+                </div>
+                <div class="upcoming-body">
+                  <div class="upcoming-title">Vendor Onboarding – Coastal Solvents</div>
+                  <div class="upcoming-sub">Tue &middot; <span style="color:#14B8A6;font-weight:600;">Procurement</span></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -504,43 +603,58 @@
 <script src="./assets/js/chart.umd.min.js"></script>
 <script src="./assets/js/script.js"></script>
 <script>
-  // This page opens on the "Masters" rail menu with "Organization" highlighted.
-  if (typeof activeMenu !== 'undefined') { activeMenu = 'Masters'; initLayout(); }
+  // Calendar page setup (static demo month; nav buttons are visual placeholders).
+  if (typeof activeMenu !== 'undefined') { activeMenu = 'Dashboard'; initLayout(); }
 
-  const statusClassFor = (status) => status === 'Active' ? 'status-completed' : (status === 'Under Review' ? 'status-progress' : 'status-planned');
+  document.getElementById('calTodayBtn').addEventListener('click', function(){
+    const todayCell = document.querySelector('.cal-day.today');
+    if (todayCell) {
+      todayCell.scrollIntoView({ behavior:'smooth', block:'center' });
+      todayCell.style.transition = 'box-shadow .3s';
+      todayCell.style.boxShadow = '0 0 0 3px var(--sidebar-active-dk)';
+      setTimeout(() => { todayCell.style.boxShadow = ''; }, 900);
+    }
+  });
 
-  function addMaterialRow(code, name, category, uom, status){
-    const tbody = document.getElementById('orgTableBody');
-    const sno = tbody.querySelectorAll('tr').length + 1;
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td>${sno}</td>
-      <td class="order-no">${code}</td>
-      <td>${name}</td>
-      <td>${category}</td>
-      <td>${uom}</td>
-      <td><span class="status-pill ${statusClassFor(status)}">${status}</span></td>
-      <td>
-        <div class="d-flex gap-2">
-          <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-          <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-        </div>
-      </td>`;
-    tbody.appendChild(tr);
-  }
+  // Merge in any events saved from the standalone "Add Event" page.
+  const CAL_CATS = {'Production':'#F97316', 'Quality':'#7C5CFC', 'Procurement':'#14B8A6', 'Dispatch':'#2563EB', 'Finance':'#EC4899', 'Warehouse':'#22C55E', 'Maintenance':'#EF4444'};
+  const MONTH_ABBR = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
-  // Load any materials saved from the standalone "Add Material Master" page.
-  JSON.parse(localStorage.getItem('ritsa_materials') || '[]')
-    .forEach(m => addMaterialRow(m.code, m.name, m.category, m.uom, m.status));
+  const savedEvents = JSON.parse(localStorage.getItem('ritsa_events') || '[]');
+  const upcomingList = document.getElementById('upcomingList');
 
-  // Delete row on click (event delegation) + renumber S.No.
-  document.getElementById('orgTableBody').addEventListener('click', function(e){
-    const btn = e.target.closest('.row-ic-btn.danger');
-    if(!btn) return;
-    btn.closest('tr').remove();
-    [...document.querySelectorAll('#orgTableBody tr')].forEach((tr,i)=>{
-      tr.children[0].textContent = i+1;
-    });
+  savedEvents.forEach(ev => {
+    if (!ev.date) return;
+    const color = CAL_CATS[ev.category] || '#2563EB';
+    const [y, m, d] = ev.date.split('-').map(Number);
+
+    // If the event falls within the displayed month (July 2026), add a chip to that day cell.
+    if (y === 2026 && m === 7) {
+      const cell = document.querySelector(`.cal-day[data-day="${d}"]`);
+      if (cell) {
+        const chip = document.createElement('div');
+        chip.className = 'cal-event-chip';
+        chip.style.background = color + '1A';
+        chip.style.color = color;
+        chip.title = ev.title;
+        chip.innerHTML = `<span class="cal-event-dot" style="background:${color};"></span>${ev.title}`;
+        cell.appendChild(chip);
+      }
+    }
+
+    // Always add it to the Upcoming Events list too.
+    const item = document.createElement('div');
+    item.className = 'upcoming-item';
+    item.innerHTML = `
+      <div class="upcoming-date" style="color:${color};background:${color}1A;">
+        <span class="d">${String(d).padStart(2,'0')}</span>
+        <span class="m">${MONTH_ABBR[m-1]}</span>
+      </div>
+      <div class="upcoming-body">
+        <div class="upcoming-title">${ev.title}</div>
+        <div class="upcoming-sub">${ev.time || 'All day'} &middot; <span style="color:${color};font-weight:600;">${ev.category}</span></div>
+      </div>`;
+    upcomingList.appendChild(item);
   });
 </script>
 </body>

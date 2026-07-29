@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RITSA | Material Master</title>
+<title>RITSA | Notifications</title>
 
 <!-- Bootstrap 5 -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
@@ -14,6 +14,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="./assets/css/style.css">
+<style>
+  .notif-filter-btn{border:1px solid var(--border-c); background:#fff; color:var(--text-muted); font-size:12.5px; font-weight:600; padding:7px 16px; border-radius:20px; cursor:pointer; transition:all .15s;}
+  .notif-filter-btn:hover{background:#F8FAFC;}
+  .notif-filter-btn.active{background:var(--text-dark); color:#fff; border-color:var(--text-dark);}
+  #notifFeed .notif-item{align-items:center;}
+</style>
 </head>
 <body>
 
@@ -30,8 +36,8 @@
       </button>
     </div>
     <div class="rail-nav">
-      <a class="rail-link" data-menu="Dashboard" title="Dashboard"><i class="bi bi-grid-1x2"></i><span>Dashboard</span></a>
-      <a class="rail-link active" data-menu="Masters" title="Masters"><i class="bi bi-archive"></i><span>Masters</span></a>
+      <a class="rail-link active" data-menu="Dashboard" title="Dashboard"><i class="bi bi-grid-1x2"></i><span>Dashboard</span></a>
+      <a class="rail-link" data-menu="Masters" title="Masters"><i class="bi bi-archive"></i><span>Masters</span></a>
       <a class="rail-link" data-menu="Procurement" title="Procurement"><i class="bi bi-cart3"></i><span>Procurement</span></a>
       <a class="rail-link" data-menu="Goods Receipt" title="Goods Receipt"><i class="bi bi-box-seam"></i><span>Goods Receipt</span></a>
       <a class="rail-link" data-menu="Quality Management" title="Quality Management"><i class="bi bi-eyedropper"></i><span>Quality Control</span></a>
@@ -139,7 +145,7 @@
   <aside class="masters-panel" id="mastersPanel">
     <div class="masters-panel-inner">
     <div class="d-flex align-items-center">
-      <h6 class="title mb-0" id="panelTitle">Masters</h6>
+      <h6 class="title mb-0" id="panelTitle">Dashboard</h6>
       <button class="masters-close" id="mastersCloseBtn"><i class="bi bi-x-lg"></i></button>
     </div>
     <!-- <div class="masters-search">
@@ -147,20 +153,20 @@
       <input type="text" placeholder="Search...">
     </div> -->
 
-    <ul class="masters-list" data-menu="Dashboard" style="display:none">
+    <ul class="masters-list" data-menu="Dashboard">
       <li class="master-item"><a class="m-row" href="./index.html"><span class="m-ic"><i class="bi bi-speedometer2"></i></span>Overview</a></li>
       <li class="master-item"><a class="m-row" href="./kpi-dashboard.html"><span class="m-ic"><i class="bi bi-bar-chart-line"></i></span>KPI Dashboard</a></li>
-      <li class="master-item"><a class="m-row" href="./notifications.html"><span class="m-ic"><i class="bi bi-bell"></i></span>Notifications</a></li>
+      <li class="master-item"><a class="m-row active-sub" href="./notifications.html"><span class="m-ic"><i class="bi bi-bell"></i></span>Notifications</a></li>
       <li class="master-item"><a class="m-row" href="./calendar.html"><span class="m-ic"><i class="bi bi-calendar3"></i></span>Calendar</a></li>
       <!-- <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-clock-history"></i></span>Recent Activities</div></li> -->
     </ul>
 
-    <ul class="masters-list" data-menu="Masters">
+    <ul class="masters-list" data-menu="Masters" style="display:none">
       <li class="master-item"><a class="m-row" href="./organization.html"><span class="m-ic"><i class="bi bi-building"></i></span>Organization</a></li>
       <li class="master-item"><a class="m-row" href="./plants-facilities.html"><span class="m-ic"><i class="bi bi-buildings"></i></span>Plants &amp; Facilities</a></li>
       <li class="master-item"><a class="m-row" href="./warehouse.html"><span class="m-ic"><i class="bi bi-house-gear"></i></span>Warehouse</a></li>
       <li class="master-item"><a class="m-row" href="./storage-locations.html"><span class="m-ic"><i class="bi bi-geo-alt"></i></span>Storage Locations</a></li>
-      <li class="master-item"><a class="m-row active-sub" href="./material-master.html"><span class="m-ic"><i class="bi bi-box"></i></span>Material Master</a></li>
+      <li class="master-item"><a class="m-row" href="./material-master.html"><span class="m-ic"><i class="bi bi-box"></i></span>Material Master</a></li>
       <li class="master-item"><a class="m-row" href="./product-master.html"><span class="m-ic"><i class="bi bi-capsule"></i></span>Product Master</a></li>
       <li class="master-item"><a class="m-row" href="./bill-of-materials.html"><span class="m-ic"><i class="bi bi-diagram-3"></i></span>Bill of Materials (BOM)</a></li>
       <li class="master-item"><a class="m-row" href="./recipes-formulas.html"><span class="m-ic"><i class="bi bi-journal-text"></i></span>Recipes / Formulas</a></li>
@@ -344,144 +350,149 @@
       <!-- Page head -->
       <div class="page-head">
         <div>
-          <!-- <div class="welcome">Masters</div> -->
-          <h1 class="brand-font">Material Master</h1>
-          <!-- <div class="sub">Manage raw materials, packaging materials and other items used across procurement, production and inventory.</div> -->
+          <!-- <div class="welcome">Dashboard</div> -->
+          <h1 class="brand-font">Notifications</h1>
+          <!-- <div class="sub">Alerts and updates from inventory, quality, production, dispatch and finance.</div> -->
         </div>
-        <a class="btn-customize" href="./add-material-master.html">
-          <i class="bi bi-plus-lg"></i> Add New
-        </a>
+        <a href="#" class="notif-mark" id="markAllReadBtn" style="font-size:13px;">Mark all as read</a>
       </div>
 
-      <!-- Organization table -->
+      <!-- Filter tabs -->
       <div class="row g-3 mb-3">
         <div class="col-12">
-          <div class="panel-card">
-            <!-- <div class="panel-head">
-              <h5>Material Master</h5>
-              <span class="range-btn" style="pointer-events:none;"><i class="bi bi-box"></i> 8 Records</span>
-            </div> -->
-            <div class="table-responsive">
-              <table class="table-orders" id="orgTable">
-                <thead>
-                  <tr><th style="width:60px;">S.No.</th><th>Material Code</th><th>Material Name</th><th>Category</th><th>UOM</th><th>Status</th><th style="width:110px;">Actions</th></tr>
-                </thead>
-                <tbody id="orgTableBody">
-                  <tr>
-                    <td>1</td>
-                    <td class="order-no">RM-0001</td>
-                    <td>Paracetamol IP</td>
-                    <td>Raw Material</td>
-                    <td>KG</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td class="order-no">RM-0002</td>
-                    <td>Amoxicillin Trihydrate</td>
-                    <td>Raw Material</td>
-                    <td>KG</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td class="order-no">RM-0003</td>
-                    <td>Microcrystalline Cellulose</td>
-                    <td>Raw Material</td>
-                    <td>KG</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td class="order-no">PM-0001</td>
-                    <td>Blister Foil – Alu/Alu</td>
-                    <td>Packaging Material</td>
-                    <td>Meter</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td class="order-no">PM-0002</td>
-                    <td>Carton Box – 10x10x5</td>
-                    <td>Packaging Material</td>
-                    <td>Nos</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>6</td>
-                    <td class="order-no">SF-0001</td>
-                    <td>Amoxicillin 250mg Granules</td>
-                    <td>Semi-Finished</td>
-                    <td>KG</td>
-                    <td><span class="status-pill status-progress">Under Review</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>7</td>
-                    <td class="order-no">FG-0001</td>
-                    <td>Paracetamol 500mg Tablets</td>
-                    <td>Finished Goods</td>
-                    <td>Box</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>8</td>
-                    <td class="order-no">OT-0001</td>
-                    <td>Isopropyl Alcohol – Cleaning Grade</td>
-                    <td>Others</td>
-                    <td>Litre</td>
-                    <td><span class="status-pill status-planned">Inactive</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div class="d-flex align-items-center gap-2">
+            <button type="button" class="notif-filter-btn active" data-filter="all">All</button>
+            <button type="button" class="notif-filter-btn" data-filter="unread">Unread <span class="badge-dot" style="position:static;display:inline-flex;margin-left:4px;">4</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notification feed -->
+      <div class="row g-3 mb-3">
+        <div class="col-12">
+          <div class="panel-card" style="padding:0;overflow:hidden;" id="notifFeed">
+            <div class="notif-group-label" style="padding:10px 20px 6px;font-size:11.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--text-muted);">Today</div>
+              <a class="notif-item unread" href="#" style="padding:14px 20px;">
+                <span class="notif-ic" style="background:linear-gradient(135deg,var(--accent-teal),var(--accent-teal-dk));"><i class="bi bi-box-seam"></i></span>
+                <div class="notif-body">
+                  <div class="notif-title" style="font-size:13.5px;">Low stock alert: Paracetamol IP</div>
+                  <div class="notif-sub" style="font-size:12.5px;">Raw material below minimum threshold (250 KG remaining)</div>
+                  <div class="notif-time">10 min ago</div>
+                </div>
+                <span class="notif-dot"></span>
+              </a>
+              <div class="notif-divider"></div>
+              <a class="notif-item unread" href="#" style="padding:14px 20px;">
+                <span class="notif-ic" style="background:linear-gradient(135deg,var(--accent-purple),var(--accent-purple-dk));"><i class="bi bi-eyedropper"></i></span>
+                <div class="notif-body">
+                  <div class="notif-title" style="font-size:13.5px;">QC sample pending review</div>
+                  <div class="notif-sub" style="font-size:12.5px;">Batch B240602 - Amoxicillin 250mg awaiting approval</div>
+                  <div class="notif-time">1 hour ago</div>
+                </div>
+                <span class="notif-dot"></span>
+              </a>
+              <div class="notif-divider"></div>
+              <a class="notif-item" href="#" style="padding:14px 20px;">
+                <span class="notif-ic" style="background:linear-gradient(135deg,var(--accent-green),var(--accent-green-dk));"><i class="bi bi-check2-circle"></i></span>
+                <div class="notif-body">
+                  <div class="notif-title" style="font-size:13.5px;">Production order completed</div>
+                  <div class="notif-sub" style="font-size:12.5px;">PO-2024-00154 Cetirizine 10mg finished ahead of schedule</div>
+                  <div class="notif-time">2 hours ago</div>
+                </div>
+                <span class="notif-dot"></span>
+              </a>
+              <div class="notif-divider"></div>
+              <a class="notif-item unread" href="#" style="padding:14px 20px;">
+                <span class="notif-ic" style="background:linear-gradient(135deg,var(--accent-orange),var(--accent-orange-dk));"><i class="bi bi-truck"></i></span>
+                <div class="notif-body">
+                  <div class="notif-title" style="font-size:13.5px;">Dispatch delayed</div>
+                  <div class="notif-sub" style="font-size:12.5px;">INV-2024-00519 held at warehouse due to documentation issue</div>
+                  <div class="notif-time">3 hours ago</div>
+                </div>
+                <span class="notif-dot"></span>
+              </a>
+              <div class="notif-divider"></div>
+            <div class="notif-group-label" style="padding:10px 20px 6px;font-size:11.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--text-muted);">Yesterday</div>
+              <a class="notif-item" href="#" style="padding:14px 20px;">
+                <span class="notif-ic" style="background:linear-gradient(135deg,var(--accent-green),var(--accent-green-dk));"><i class="bi bi-clipboard-check"></i></span>
+                <div class="notif-body">
+                  <div class="notif-title" style="font-size:13.5px;">GRN created</div>
+                  <div class="notif-sub" style="font-size:12.5px;">GRN-2024-00341 received from MedChem Laboratories</div>
+                  <div class="notif-time">Yesterday, 5:40 PM</div>
+                </div>
+                <span class="notif-dot"></span>
+              </a>
+              <div class="notif-divider"></div>
+              <a class="notif-item unread" href="#" style="padding:14px 20px;">
+                <span class="notif-ic" style="background:linear-gradient(135deg,#E0526B,#B6304A);"><i class="bi bi-exclamation-triangle"></i></span>
+                <div class="notif-body">
+                  <div class="notif-title" style="font-size:13.5px;">Batch nearing expiry</div>
+                  <div class="notif-sub" style="font-size:12.5px;">B231205 Ibuprofen 400mg expires in 30 days</div>
+                  <div class="notif-time">Yesterday, 2:15 PM</div>
+                </div>
+                <span class="notif-dot"></span>
+              </a>
+              <div class="notif-divider"></div>
+              <a class="notif-item" href="#" style="padding:14px 20px;">
+                <span class="notif-ic" style="background:linear-gradient(135deg,var(--accent-orange),var(--accent-orange-dk));"><i class="bi bi-coin"></i></span>
+                <div class="notif-body">
+                  <div class="notif-title" style="font-size:13.5px;">Vendor payment due</div>
+                  <div class="notif-sub" style="font-size:12.5px;">Invoice PINV-2025-0298 due in 3 days for Sterling Packaging</div>
+                  <div class="notif-time">Yesterday, 11:00 AM</div>
+                </div>
+                <span class="notif-dot"></span>
+              </a>
+              <div class="notif-divider"></div>
+              <a class="notif-item" href="#" style="padding:14px 20px;">
+                <span class="notif-ic" style="background:linear-gradient(135deg,#3B9FE0,#1D74A8);"><i class="bi bi-file-earmark-check"></i></span>
+                <div class="notif-body">
+                  <div class="notif-title" style="font-size:13.5px;">New purchase order approved</div>
+                  <div class="notif-sub" style="font-size:12.5px;">PO-2024-00160 approved by Finance</div>
+                  <div class="notif-time">Yesterday, 9:30 AM</div>
+                </div>
+                <span class="notif-dot"></span>
+              </a>
+              <div class="notif-divider"></div>
+            <div class="notif-group-label" style="padding:10px 20px 6px;font-size:11.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--text-muted);">Earlier this week</div>
+              <a class="notif-item" href="#" style="padding:14px 20px;">
+                <span class="notif-ic" style="background:linear-gradient(135deg,var(--accent-teal),var(--accent-teal-dk));"><i class="bi bi-hash"></i></span>
+                <div class="notif-body">
+                  <div class="notif-title" style="font-size:13.5px;">Document numbering series reset</div>
+                  <div class="notif-sub" style="font-size:12.5px;">Sales Invoice series INV-2025- rolled over for new fiscal quarter</div>
+                  <div class="notif-time">Mon, 8:00 AM</div>
+                </div>
+                <span class="notif-dot"></span>
+              </a>
+              <div class="notif-divider"></div>
+              <a class="notif-item" href="#" style="padding:14px 20px;">
+                <span class="notif-ic" style="background:linear-gradient(135deg,var(--accent-orange),var(--accent-orange-dk));"><i class="bi bi-gear"></i></span>
+                <div class="notif-body">
+                  <div class="notif-title" style="font-size:13.5px;">Equipment maintenance due</div>
+                  <div class="notif-sub" style="font-size:12.5px;">Tablet Compression Machine #3 due for scheduled maintenance</div>
+                  <div class="notif-time">Mon, 7:45 AM</div>
+                </div>
+                <span class="notif-dot"></span>
+              </a>
+              <div class="notif-divider"></div>
+              <a class="notif-item" href="#" style="padding:14px 20px;">
+                <span class="notif-ic" style="background:linear-gradient(135deg,var(--accent-purple),var(--accent-purple-dk));"><i class="bi bi-person-badge"></i></span>
+                <div class="notif-body">
+                  <div class="notif-title" style="font-size:13.5px;">New customer onboarded</div>
+                  <div class="notif-sub" style="font-size:12.5px;">GreenLeaf Exports added to Customers master</div>
+                  <div class="notif-time">Sun, 4:20 PM</div>
+                </div>
+                <span class="notif-dot"></span>
+              </a>
+              <div class="notif-divider"></div>
+              <a class="notif-item" href="#" style="padding:14px 20px;">
+                <span class="notif-ic" style="background:linear-gradient(135deg,var(--accent-teal),var(--accent-teal-dk));"><i class="bi bi-coin"></i></span>
+                <div class="notif-body">
+                  <div class="notif-title" style="font-size:13.5px;">Currency rate updated</div>
+                  <div class="notif-sub" style="font-size:12.5px;">USD/INR exchange rate updated to 83.12</div>
+                  <div class="notif-time">Sun, 9:00 AM</div>
+                </div>
+                <span class="notif-dot"></span>
+              </a>
           </div>
         </div>
       </div>
@@ -504,43 +515,38 @@
 <script src="./assets/js/chart.umd.min.js"></script>
 <script src="./assets/js/script.js"></script>
 <script>
-  // This page opens on the "Masters" rail menu with "Organization" highlighted.
-  if (typeof activeMenu !== 'undefined') { activeMenu = 'Masters'; initLayout(); }
+  // Notifications page: filter tabs + mark-as-read behaviour (client-side only).
+  if (typeof activeMenu !== 'undefined') { activeMenu = 'Dashboard'; initLayout(); }
 
-  const statusClassFor = (status) => status === 'Active' ? 'status-completed' : (status === 'Under Review' ? 'status-progress' : 'status-planned');
+  const filterBtns = document.querySelectorAll('.notif-filter-btn');
+  const feed = document.getElementById('notifFeed');
 
-  function addMaterialRow(code, name, category, uom, status){
-    const tbody = document.getElementById('orgTableBody');
-    const sno = tbody.querySelectorAll('tr').length + 1;
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td>${sno}</td>
-      <td class="order-no">${code}</td>
-      <td>${name}</td>
-      <td>${category}</td>
-      <td>${uom}</td>
-      <td><span class="status-pill ${statusClassFor(status)}">${status}</span></td>
-      <td>
-        <div class="d-flex gap-2">
-          <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-          <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-        </div>
-      </td>`;
-    tbody.appendChild(tr);
-  }
-
-  // Load any materials saved from the standalone "Add Material Master" page.
-  JSON.parse(localStorage.getItem('ritsa_materials') || '[]')
-    .forEach(m => addMaterialRow(m.code, m.name, m.category, m.uom, m.status));
-
-  // Delete row on click (event delegation) + renumber S.No.
-  document.getElementById('orgTableBody').addEventListener('click', function(e){
-    const btn = e.target.closest('.row-ic-btn.danger');
-    if(!btn) return;
-    btn.closest('tr').remove();
-    [...document.querySelectorAll('#orgTableBody tr')].forEach((tr,i)=>{
-      tr.children[0].textContent = i+1;
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function(){
+      filterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      const showUnreadOnly = this.dataset.filter === 'unread';
+      feed.querySelectorAll('.notif-item').forEach(item => {
+        item.style.display = (showUnreadOnly && !item.classList.contains('unread')) ? 'none' : 'flex';
+      });
+      feed.querySelectorAll('.notif-group-label').forEach(label => {
+        const group = [];
+        let el = label.nextElementSibling;
+        while (el && !el.classList.contains('notif-group-label')) {
+          if (el.classList.contains('notif-item')) group.push(el);
+          el = el.nextElementSibling;
+        }
+        const anyVisible = group.some(i => i.style.display !== 'none');
+        label.style.display = anyVisible ? '' : 'none';
+      });
     });
+  });
+
+  document.getElementById('markAllReadBtn').addEventListener('click', function(e){
+    e.preventDefault();
+    feed.querySelectorAll('.notif-item.unread').forEach(item => item.classList.remove('unread'));
+    const unreadTab = document.querySelector('.notif-filter-btn[data-filter="unread"] .badge-dot');
+    if (unreadTab) unreadTab.textContent = '0';
   });
 </script>
 </body>

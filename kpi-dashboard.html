@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RITSA | Material Master</title>
+<title>RITSA | KPI Dashboard</title>
 
 <!-- Bootstrap 5 -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
@@ -30,8 +30,8 @@
       </button>
     </div>
     <div class="rail-nav">
-      <a class="rail-link" data-menu="Dashboard" title="Dashboard"><i class="bi bi-grid-1x2"></i><span>Dashboard</span></a>
-      <a class="rail-link active" data-menu="Masters" title="Masters"><i class="bi bi-archive"></i><span>Masters</span></a>
+      <a class="rail-link active" data-menu="Dashboard" title="Dashboard"><i class="bi bi-grid-1x2"></i><span>Dashboard</span></a>
+      <a class="rail-link" data-menu="Masters" title="Masters"><i class="bi bi-archive"></i><span>Masters</span></a>
       <a class="rail-link" data-menu="Procurement" title="Procurement"><i class="bi bi-cart3"></i><span>Procurement</span></a>
       <a class="rail-link" data-menu="Goods Receipt" title="Goods Receipt"><i class="bi bi-box-seam"></i><span>Goods Receipt</span></a>
       <a class="rail-link" data-menu="Quality Management" title="Quality Management"><i class="bi bi-eyedropper"></i><span>Quality Control</span></a>
@@ -139,7 +139,7 @@
   <aside class="masters-panel" id="mastersPanel">
     <div class="masters-panel-inner">
     <div class="d-flex align-items-center">
-      <h6 class="title mb-0" id="panelTitle">Masters</h6>
+      <h6 class="title mb-0" id="panelTitle">Dashboard</h6>
       <button class="masters-close" id="mastersCloseBtn"><i class="bi bi-x-lg"></i></button>
     </div>
     <!-- <div class="masters-search">
@@ -147,20 +147,20 @@
       <input type="text" placeholder="Search...">
     </div> -->
 
-    <ul class="masters-list" data-menu="Dashboard" style="display:none">
+    <ul class="masters-list" data-menu="Dashboard">
       <li class="master-item"><a class="m-row" href="./index.html"><span class="m-ic"><i class="bi bi-speedometer2"></i></span>Overview</a></li>
-      <li class="master-item"><a class="m-row" href="./kpi-dashboard.html"><span class="m-ic"><i class="bi bi-bar-chart-line"></i></span>KPI Dashboard</a></li>
+      <li class="master-item"><a class="m-row active-sub" href="./kpi-dashboard.html"><span class="m-ic"><i class="bi bi-bar-chart-line"></i></span>KPI Dashboard</a></li>
       <li class="master-item"><a class="m-row" href="./notifications.html"><span class="m-ic"><i class="bi bi-bell"></i></span>Notifications</a></li>
       <li class="master-item"><a class="m-row" href="./calendar.html"><span class="m-ic"><i class="bi bi-calendar3"></i></span>Calendar</a></li>
       <!-- <li class="master-item"><div class="m-row"><span class="m-ic"><i class="bi bi-clock-history"></i></span>Recent Activities</div></li> -->
     </ul>
 
-    <ul class="masters-list" data-menu="Masters">
+    <ul class="masters-list" data-menu="Masters" style="display:none">
       <li class="master-item"><a class="m-row" href="./organization.html"><span class="m-ic"><i class="bi bi-building"></i></span>Organization</a></li>
       <li class="master-item"><a class="m-row" href="./plants-facilities.html"><span class="m-ic"><i class="bi bi-buildings"></i></span>Plants &amp; Facilities</a></li>
       <li class="master-item"><a class="m-row" href="./warehouse.html"><span class="m-ic"><i class="bi bi-house-gear"></i></span>Warehouse</a></li>
       <li class="master-item"><a class="m-row" href="./storage-locations.html"><span class="m-ic"><i class="bi bi-geo-alt"></i></span>Storage Locations</a></li>
-      <li class="master-item"><a class="m-row active-sub" href="./material-master.html"><span class="m-ic"><i class="bi bi-box"></i></span>Material Master</a></li>
+      <li class="master-item"><a class="m-row" href="./material-master.html"><span class="m-ic"><i class="bi bi-box"></i></span>Material Master</a></li>
       <li class="master-item"><a class="m-row" href="./product-master.html"><span class="m-ic"><i class="bi bi-capsule"></i></span>Product Master</a></li>
       <li class="master-item"><a class="m-row" href="./bill-of-materials.html"><span class="m-ic"><i class="bi bi-diagram-3"></i></span>Bill of Materials (BOM)</a></li>
       <li class="master-item"><a class="m-row" href="./recipes-formulas.html"><span class="m-ic"><i class="bi bi-journal-text"></i></span>Recipes / Formulas</a></li>
@@ -344,140 +344,178 @@
       <!-- Page head -->
       <div class="page-head">
         <div>
-          <!-- <div class="welcome">Masters</div> -->
-          <h1 class="brand-font">Material Master</h1>
-          <!-- <div class="sub">Manage raw materials, packaging materials and other items used across procurement, production and inventory.</div> -->
+          <!-- <div class="welcome">Masters &amp; Analytics</div> -->
+          <h1 class="brand-font">KPI Dashboard</h1>
+          <!-- <div class="sub">Track the key performance indicators driving production, quality, warehouse and dispatch operations.</div> -->
         </div>
-        <a class="btn-customize" href="./add-material-master.html">
-          <i class="bi bi-plus-lg"></i> Add New
-        </a>
+        <button class="range-btn">This Month <i class="bi bi-chevron-down"></i></button>
       </div>
 
-      <!-- Organization table -->
+      <!-- KPI stat cards -->
+      <div class="row g-3 mb-3">
+        <div class="col-6 col-xl-3">
+          <div class="stat-card">
+            <div class="top-row">
+              <div class="stat-ic" style="background:linear-gradient(135deg,var(--accent-teal),var(--accent-teal-dk));"><i class="bi bi-speedometer2"></i></div>
+              <div class="lab">Overall Equipment Effectiveness</div>
+            </div>
+            <div class="val">82.4%</div>
+            <div class="foot">Target: 85% <span class="trend up"><i class="bi bi-arrow-up-short"></i>3.1%</span></div>
+          </div>
+        </div>
+        <div class="col-6 col-xl-3">
+          <div class="stat-card">
+            <div class="top-row">
+              <div class="stat-ic" style="background:linear-gradient(135deg,var(--accent-green),var(--accent-green-dk));"><i class="bi bi-graph-up-arrow"></i></div>
+              <div class="lab">Batch Yield</div>
+            </div>
+            <div class="val">96.8%</div>
+            <div class="foot">Target: 97% <span class="trend up"><i class="bi bi-arrow-up-short"></i>1.2%</span></div>
+          </div>
+        </div>
+        <div class="col-6 col-xl-3">
+          <div class="stat-card">
+            <div class="top-row">
+              <div class="stat-ic" style="background:linear-gradient(135deg,var(--accent-purple),var(--accent-purple-dk));"><i class="bi bi-eyedropper"></i></div>
+              <div class="lab">Quality Pass Rate</div>
+            </div>
+            <div class="val">98.5%</div>
+            <div class="foot">Target: 98% <span class="trend up"><i class="bi bi-arrow-up-short"></i>0.6%</span></div>
+          </div>
+        </div>
+        <div class="col-6 col-xl-3">
+          <div class="stat-card">
+            <div class="top-row">
+              <div class="stat-ic" style="background:linear-gradient(135deg,var(--accent-orange),var(--accent-orange-dk));"><i class="bi bi-truck"></i></div>
+              <div class="lab">On-Time Delivery</div>
+            </div>
+            <div class="val">91.2%</div>
+            <div class="foot">Target: 95% <span class="trend down"><i class="bi bi-arrow-down-short"></i>2.4%</span></div>
+          </div>
+        </div>
+        <div class="col-6 col-xl-3">
+          <div class="stat-card">
+            <div class="top-row">
+              <div class="stat-ic" style="background:linear-gradient(135deg,#3B9FE0,#1D74A8);"><i class="bi bi-arrow-repeat"></i></div>
+              <div class="lab">Inventory Turnover</div>
+            </div>
+            <div class="val">6.2x</div>
+            <div class="foot">Target: 6.0x <span class="trend up"><i class="bi bi-arrow-up-short"></i>0.4x</span></div>
+          </div>
+        </div>
+        <div class="col-6 col-xl-3">
+          <div class="stat-card">
+            <div class="top-row">
+              <div class="stat-ic" style="background:linear-gradient(135deg,#7A5CF0,#5637C4);"><i class="bi bi-check2-square"></i></div>
+              <div class="lab">Order Fulfillment Rate</div>
+            </div>
+            <div class="val">94.7%</div>
+            <div class="foot">Target: 95% <span class="trend up"><i class="bi bi-arrow-up-short"></i>1.8%</span></div>
+          </div>
+        </div>
+        <div class="col-6 col-xl-3">
+          <div class="stat-card">
+            <div class="top-row">
+              <div class="stat-ic" style="background:linear-gradient(135deg,#E0526B,#B6304A);"><i class="bi bi-hourglass-split"></i></div>
+              <div class="lab">Downtime (Hrs / Month)</div>
+            </div>
+            <div class="val">42</div>
+            <div class="foot">Target: &le;40 hrs <span class="trend down"><i class="bi bi-arrow-down-short"></i>5 hrs</span></div>
+          </div>
+        </div>
+        <div class="col-6 col-xl-3">
+          <div class="stat-card">
+            <div class="top-row">
+              <div class="stat-ic" style="background:linear-gradient(135deg,var(--accent-teal-dk),#0E6B63);"><i class="bi bi-currency-rupee"></i></div>
+              <div class="lab">Cost per Batch</div>
+            </div>
+            <div class="val">&#8377;18,450</div>
+            <div class="foot">Target: &#8377;18,000 <span class="trend down"><i class="bi bi-arrow-down-short"></i>3.2%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts -->
+      <div class="row g-3 mb-3">
+        <div class="col-12 col-xl-6">
+          <div class="panel-card">
+            <div class="panel-head">
+              <h5>KPI Achievement Trend</h5>
+              <div class="d-flex align-items-center gap-3">
+                <span class="d-flex align-items-center gap-1" style="font-size:12px;color:var(--text-muted);font-weight:600;"><span class="legend-dot" style="background:#2563EB"></span>OEE</span>
+                <span class="d-flex align-items-center gap-1" style="font-size:12px;color:var(--text-muted);font-weight:600;"><span class="legend-dot" style="background:#22C55E"></span>Quality Pass Rate</span>
+              </div>
+            </div>
+            <canvas id="kpiTrendChart" height="240"></canvas>
+          </div>
+        </div>
+        <div class="col-12 col-xl-6">
+          <div class="panel-card">
+            <div class="panel-head">
+              <h5>Department-wise Target vs Achieved</h5>
+              <div class="d-flex align-items-center gap-3">
+                <span class="d-flex align-items-center gap-1" style="font-size:12px;color:var(--text-muted);font-weight:600;"><span class="legend-dot" style="background:#BFDBFE"></span>Target</span>
+                <span class="d-flex align-items-center gap-1" style="font-size:12px;color:var(--text-muted);font-weight:600;"><span class="legend-dot" style="background:#2563EB"></span>Achieved</span>
+              </div>
+            </div>
+            <canvas id="kpiDeptChart" height="240"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI summary table -->
       <div class="row g-3 mb-3">
         <div class="col-12">
           <div class="panel-card">
-            <!-- <div class="panel-head">
-              <h5>Material Master</h5>
-              <span class="range-btn" style="pointer-events:none;"><i class="bi bi-box"></i> 8 Records</span>
-            </div> -->
+            <div class="panel-head">
+              <h5>KPI Summary</h5>
+              <span class="range-btn" style="pointer-events:none;"><i class="bi bi-bar-chart-line"></i> 8 KPIs Tracked</span>
+            </div>
             <div class="table-responsive">
-              <table class="table-orders" id="orgTable">
+              <table class="table-orders">
                 <thead>
-                  <tr><th style="width:60px;">S.No.</th><th>Material Code</th><th>Material Name</th><th>Category</th><th>UOM</th><th>Status</th><th style="width:110px;">Actions</th></tr>
+                  <tr><th>KPI</th><th>Category</th><th>Target</th><th>Actual</th><th>Achievement</th><th>Status</th></tr>
                 </thead>
-                <tbody id="orgTableBody">
+                <tbody>
                   <tr>
-                    <td>1</td>
-                    <td class="order-no">RM-0001</td>
-                    <td>Paracetamol IP</td>
-                    <td>Raw Material</td>
-                    <td>KG</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
+                    <td class="order-no">Overall Equipment Effectiveness</td><td>Production</td><td>85%</td><td>82.4%</td>
+                    <td><div class="d-flex align-items-center gap-2"><div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:82%"></div></div><span>97%</span></div></td>
+                    <td><span class="status-pill status-progress">Below Target</span></td>
                   </tr>
                   <tr>
-                    <td>2</td>
-                    <td class="order-no">RM-0002</td>
-                    <td>Amoxicillin Trihydrate</td>
-                    <td>Raw Material</td>
-                    <td>KG</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
+                    <td class="order-no">Batch Yield</td><td>Production</td><td>97%</td><td>96.8%</td>
+                    <td><div class="d-flex align-items-center gap-2"><div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:97%;background:var(--accent-green)"></div></div><span>99.8%</span></div></td>
+                    <td><span class="status-pill status-completed">On Target</span></td>
                   </tr>
                   <tr>
-                    <td>3</td>
-                    <td class="order-no">RM-0003</td>
-                    <td>Microcrystalline Cellulose</td>
-                    <td>Raw Material</td>
-                    <td>KG</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
+                    <td class="order-no">Quality Pass Rate</td><td>Quality</td><td>98%</td><td>98.5%</td>
+                    <td><div class="d-flex align-items-center gap-2"><div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:100%;background:var(--accent-green)"></div></div><span>100.5%</span></div></td>
+                    <td><span class="status-pill status-completed">On Target</span></td>
                   </tr>
                   <tr>
-                    <td>4</td>
-                    <td class="order-no">PM-0001</td>
-                    <td>Blister Foil – Alu/Alu</td>
-                    <td>Packaging Material</td>
-                    <td>Meter</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
+                    <td class="order-no">On-Time Delivery</td><td>Dispatch</td><td>95%</td><td>91.2%</td>
+                    <td><div class="d-flex align-items-center gap-2"><div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:91%"></div></div><span>96%</span></div></td>
+                    <td><span class="status-pill status-progress">Below Target</span></td>
                   </tr>
                   <tr>
-                    <td>5</td>
-                    <td class="order-no">PM-0002</td>
-                    <td>Carton Box – 10x10x5</td>
-                    <td>Packaging Material</td>
-                    <td>Nos</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
+                    <td class="order-no">Inventory Turnover</td><td>Warehouse</td><td>6.0x</td><td>6.2x</td>
+                    <td><div class="d-flex align-items-center gap-2"><div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:100%;background:var(--accent-green)"></div></div><span>103%</span></div></td>
+                    <td><span class="status-pill status-completed">On Target</span></td>
                   </tr>
                   <tr>
-                    <td>6</td>
-                    <td class="order-no">SF-0001</td>
-                    <td>Amoxicillin 250mg Granules</td>
-                    <td>Semi-Finished</td>
-                    <td>KG</td>
-                    <td><span class="status-pill status-progress">Under Review</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
+                    <td class="order-no">Order Fulfillment Rate</td><td>Dispatch</td><td>95%</td><td>94.7%</td>
+                    <td><div class="d-flex align-items-center gap-2"><div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:95%"></div></div><span>99.7%</span></div></td>
+                    <td><span class="status-pill status-progress">Below Target</span></td>
                   </tr>
                   <tr>
-                    <td>7</td>
-                    <td class="order-no">FG-0001</td>
-                    <td>Paracetamol 500mg Tablets</td>
-                    <td>Finished Goods</td>
-                    <td>Box</td>
-                    <td><span class="status-pill status-completed">Active</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
+                    <td class="order-no">Downtime</td><td>Production</td><td>&le;40 hrs</td><td>42 hrs</td>
+                    <td><div class="d-flex align-items-center gap-2"><div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:95%;background:#E0526B"></div></div><span>105%</span></div></td>
+                    <td><span class="status-pill status-planned">Needs Attention</span></td>
                   </tr>
                   <tr>
-                    <td>8</td>
-                    <td class="order-no">OT-0001</td>
-                    <td>Isopropyl Alcohol – Cleaning Grade</td>
-                    <td>Others</td>
-                    <td>Litre</td>
-                    <td><span class="status-pill status-planned">Inactive</span></td>
-                    <td>
-                      <div class="d-flex gap-2">
-                        <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-                        <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-                      </div>
-                    </td>
+                    <td class="order-no">Cost per Batch</td><td>Finance</td><td>&#8377;18,000</td><td>&#8377;18,450</td>
+                    <td><div class="d-flex align-items-center gap-2"><div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:97%;background:#E0526B"></div></div><span>102.5%</span></div></td>
+                    <td><span class="status-pill status-progress">Below Target</span></td>
                   </tr>
                 </tbody>
               </table>
@@ -504,44 +542,52 @@
 <script src="./assets/js/chart.umd.min.js"></script>
 <script src="./assets/js/script.js"></script>
 <script>
-  // This page opens on the "Masters" rail menu with "Organization" highlighted.
-  if (typeof activeMenu !== 'undefined') { activeMenu = 'Masters'; initLayout(); }
-
-  const statusClassFor = (status) => status === 'Active' ? 'status-completed' : (status === 'Under Review' ? 'status-progress' : 'status-planned');
-
-  function addMaterialRow(code, name, category, uom, status){
-    const tbody = document.getElementById('orgTableBody');
-    const sno = tbody.querySelectorAll('tr').length + 1;
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td>${sno}</td>
-      <td class="order-no">${code}</td>
-      <td>${name}</td>
-      <td>${category}</td>
-      <td>${uom}</td>
-      <td><span class="status-pill ${statusClassFor(status)}">${status}</span></td>
-      <td>
-        <div class="d-flex gap-2">
-          <button class="row-ic-btn" title="Edit"><i class="bi bi-pencil"></i></button>
-          <button class="row-ic-btn danger" title="Delete"><i class="bi bi-trash3"></i></button>
-        </div>
-      </td>`;
-    tbody.appendChild(tr);
+  // KPI Dashboard-specific charts (kept separate from the shared dashboard charts in script.js).
+  const kpiTrendCtx = document.getElementById('kpiTrendChart');
+  if (kpiTrendCtx) {
+    new Chart(kpiTrendCtx, {
+      type: 'line',
+      data: {
+        labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+        datasets: [
+          { label:'OEE', data:[76,78,80,79,81,82.4], borderColor:'#2563EB', backgroundColor:'rgba(37,99,235,0.08)', tension:0.35, fill:true, pointRadius:3 },
+          { label:'Quality Pass Rate', data:[95,96,97,96.5,98,98.5], borderColor:'#22C55E', backgroundColor:'rgba(34,197,94,0.08)', tension:0.35, fill:true, pointRadius:3 }
+        ]
+      },
+      options: {
+        responsive:true,
+        plugins:{ legend:{display:false} },
+        scales:{
+          y:{ beginAtZero:false, min:70, max:100, ticks:{stepSize:10, color:'#8C99A6', font:{size:11}}, grid:{color:'#EFF2F5'} },
+          x:{ grid:{display:false}, ticks:{color:'#8C99A6', font:{size:11}} }
+        }
+      }
+    });
   }
 
-  // Load any materials saved from the standalone "Add Material Master" page.
-  JSON.parse(localStorage.getItem('ritsa_materials') || '[]')
-    .forEach(m => addMaterialRow(m.code, m.name, m.category, m.uom, m.status));
-
-  // Delete row on click (event delegation) + renumber S.No.
-  document.getElementById('orgTableBody').addEventListener('click', function(e){
-    const btn = e.target.closest('.row-ic-btn.danger');
-    if(!btn) return;
-    btn.closest('tr').remove();
-    [...document.querySelectorAll('#orgTableBody tr')].forEach((tr,i)=>{
-      tr.children[0].textContent = i+1;
+  const kpiDeptCtx = document.getElementById('kpiDeptChart');
+  if (kpiDeptCtx) {
+    new Chart(kpiDeptCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Production','Quality','Warehouse','Dispatch','Procurement'],
+        datasets: [
+          { label:'Target', data:[90,95,90,95,88], backgroundColor:'#BFDBFE', borderRadius:5, maxBarThickness:26 },
+          { label:'Achieved', data:[84,97,93,91,86], backgroundColor:'#2563EB', borderRadius:5, maxBarThickness:26 }
+        ]
+      },
+      options:{
+        responsive:true,
+        plugins:{ legend:{display:false} },
+        scales:{
+          y:{ beginAtZero:true, max:100, ticks:{stepSize:20, color:'#8C99A6', font:{size:11}}, grid:{color:'#EFF2F5'} },
+          x:{ grid:{display:false}, ticks:{color:'#8C99A6', font:{size:11}} }
+        }
+      }
     });
-  });
+  }
+
+  if (typeof activeMenu !== 'undefined') { activeMenu = 'Dashboard'; initLayout(); }
 </script>
 </body>
 </html>
